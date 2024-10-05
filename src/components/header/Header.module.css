@@ -1,0 +1,91 @@
+header {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+header p {
+  font-family: headingFont;
+  margin-top: 29px;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.header_btn {
+  display: flex;
+  align-items: center;
+  font-size: large;
+  height: 40px;
+  margin-top: 29px;
+  gap: 10px;
+  position: relative;
+}
+.icon{
+  /* background-color: gray; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.username {
+  margin-right: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 25px;
+  font-family: headingFont;
+}
+
+.login_btn{
+  text-decoration: none;
+  font-size: 16px;
+  font-family: headingFont;
+  color: black;
+  cursor: pointer;
+}
+
+.login_btn:hover{
+  text-decoration: none;
+}
+
+.header_btn a {
+  text-decoration: none;
+  font-size: 20px;
+  font-family: headingFont;
+  color: black;
+}
+
+
+.dropdown {
+  position: absolute;
+  top: 60px; 
+  right: 0;
+  background-color: transparent;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.dropdown a {
+  font-family: headingFont;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.dropdown a:hover{
+  text-decoration: none;
+}
+
+@media (max-width:600px) {
+
+  .header_btn{
+    /* background-color: orange; */
+  }
+}

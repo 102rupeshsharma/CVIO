@@ -1,0 +1,542 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.project_heading {
+    font-family: headingFont;
+    color: #3c3a3a;
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    font-weight: 500;
+    margin-top: 20px;
+    height: auto;
+    width: auto;
+}
+
+.project_container {
+    display: flex;
+    align-items: center;
+    width: auto;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.project_sub_container {
+    display: grid;
+    grid-template-columns: 300px 300px;
+    grid-column-gap: 80px;
+    width: 750px;
+    height: auto;
+    margin: auto;
+}
+
+.project_sub_container .add_remove{
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+
+.project_input {
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 350px;
+    padding-left: 12px;
+    margin: 17px 12px;
+    align-items: center;
+    background-color: white;
+    font-family: headingFont;
+    color: #313030;
+}
+
+#project_textarea {
+    margin: 0px 0px 10px 15px;
+    border: none;
+    outline: none;
+    padding: 5px 5px;
+    overflow: auto;
+    width: 730px;
+    resize: none;
+    height: auto;
+    background-color: white;
+    font-family: headingFont;
+    color: #313030;
+}
+
+.project_textarea {
+    grid-column: 1/ span 2;
+}
+
+#project_addMore{
+    margin: 10px 0px 0px 15px;
+}
+
+.project_btn_container {
+    display: flex;
+    margin-top: 20px;
+    width: auto;
+    justify-content: space-between;
+    margin-bottom: 100px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.project_btn {
+    width: 160px;
+    height: 60px;
+    font-size: 100px;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    background-color: rgb(41, 158, 181);
+}
+
+.project_btn:hover{
+    background-color: rgb(0, 174, 209);
+    transform: translateY(-2px);
+ }
+
+
+@media screen and (min-width:650px) and (max-width:790px) {
+
+    .project_container {
+        display: flex;
+        align-items: center;
+        width: 660px;
+        margin: auto;
+        justify-content: center;
+    }
+
+    .project_heading { 
+        display: flex;
+        justify-content: center;
+        font-size: 40px;
+        font-weight: 500;
+        margin-top: 10px;
+        height: auto;
+        width: auto;
+    }
+
+    .sub_container {
+        display: grid;
+        grid-template-columns: 250px 250px;
+        grid-column-gap: 70px;
+        width: 650px;
+        height: auto;
+    }
+
+    .project_sub_container {
+        display: grid;
+        grid-template-columns: 250px 250px;
+        grid-column-gap: 70px;
+        width: 650px;
+        height: auto;
+    }
+
+    .project_input {
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        height: 40px;
+        width: 292px;
+        padding-left: 15px;
+        margin: 13px 14px;
+        align-items: center;
+    }
+
+    #project_textarea {
+        margin-left: 14px;
+        margin-bottom: 3px;
+        border: none;
+        outline: none;
+        padding: 7px 12px;
+        overflow: auto;
+        resize: none;
+        height: auto;
+        width: 610px;
+    }
+
+    .project_btn {
+        width: 160px;
+        height: 60px;
+        font-size: 100px;
+        border-radius: 10px;
+        border: none;
+        font-size: 20px;
+        background-color: #1a91f0;
+    }
+
+    .project_btn_container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 625px;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (min-width:550px) and (max-width:650px) {
+
+    .project_container {
+        display: flex;
+        align-items: center;
+        width: 550px;
+        margin: auto;
+        justify-content: center;
+    }
+
+    .project_heading { 
+        display: flex;
+        justify-content: center;
+        font-size: 40px;
+        font-weight: 500;
+        margin-top: 8px;
+        height: auto;
+        width: auto;
+    }
+
+    .project_sub_container {
+        display: grid;
+        grid-template-columns: 250px 250px;
+        grid-column-gap: 25px;
+        width: 550px;
+        height: auto;
+    }
+
+    .project_input {
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        height: 40px;
+        width: 242px;
+        padding-left: 15px;
+        margin: 13px 14px;
+        align-items: center;
+    }
+
+    #project_textarea {
+        margin-left: 14px;
+        margin-bottom: 3px;
+        border: none;
+        outline: none;
+        padding: 7px 12px;
+        overflow: auto;
+        resize: none;
+        height: auto;
+        width: 519px;
+    }
+
+    .project_btn {
+        width: 136px;
+        height: 52px;
+        font-size: 100px;
+        border-radius: 10px;
+        border: none;
+        font-size: 20px;
+        background-color: #1a91f0;
+    }
+
+    .project_btn_container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 533px;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (min-width:400px) and (max-width:550px) {
+
+    .project_container {
+        display: flex;
+        align-items: center;
+        width: auto;
+        margin: auto;
+        justify-content: center;
+    }
+
+    .project_heading { 
+        display: flex;
+        justify-content: center;
+        font-size: 40px;
+        font-weight: 500;
+        margin-top: 8px;
+        height: auto;
+        width: auto;
+    }
+
+    .project_sub_container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 412px;
+        height: auto;
+    }
+
+    .project_input {
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        height: 48px;
+        width: 359px;
+        padding-left: 15px;
+        margin: 13px 26px;
+        align-items: center;
+    }
+
+    #project_textarea {
+        margin-left: 26px;
+        margin-bottom: 3px;
+        border: none;
+        outline: none;
+        padding: 7px 12px;
+        overflow: auto;
+        resize: none;
+        height: auto;
+        width: 360px;
+    }
+
+    .project_btn {
+        width: 140px;
+        height: 50px;
+        font-size: 100px;
+        border-radius: 10px;
+        border: none;
+        font-size: 20px;
+        background-color: #1a91f0;
+    }
+
+    .project_btn_container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 30px;
+        width: 390px;
+    }
+
+}
+
+@media screen and (min-width:350px) and (max-width:400px) {
+
+    .project_container {
+        display: flex;
+        align-items: center;
+        width: auto;
+        margin: auto;
+        justify-content: center;
+    }
+
+    .project_heading { 
+        display: flex;
+        justify-content: center;
+        font-size: 40px;
+        font-weight: 500;
+        margin-top: 5px;
+        height: auto;
+        width: auto;
+    }
+
+    .project_sub_container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 365px;
+        height: auto;
+        margin: auto;
+    }
+
+    .project_input {
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        height: 40px;
+        width: 306px;
+        padding-left: 15px;
+        margin: 13px 23px;
+        align-items: center;
+    }
+
+    #project_textarea {
+        margin-left: 26px;
+        margin-bottom: 3px;
+        border: none;
+        outline: none;
+        padding: 7px 12px;
+        overflow: auto;
+        resize: none;
+        height: auto;
+        width: 302px;
+    }
+
+    .add_remove{
+        width: 107px;
+        margin-left: 26px;
+    }
+
+    .project_btn {
+        width: 120px;
+        height: 40px;
+        font-size: 100px;
+        border-radius: 10px;
+        border: none;
+        font-size: 20px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+        background-color: #1a91f0;
+    }
+
+    .project_btn_container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+        width: 335px;
+    }
+}
+
+
+@media screen and (min-width:280px) and (max-width:350px) {
+
+    .project_container {
+        display: flex;
+        align-items: center;
+        width: auto;
+        margin: auto;
+        justify-content: center;
+    }
+
+    .project_heading { 
+        display: flex;
+        justify-content: center;
+        font-size: 40px;
+        font-weight: 500;
+        height: auto;
+        width: auto;
+    }
+
+    .project_sub_container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 292px;
+        height: auto;
+        margin: auto;
+    }
+
+    .project_input {
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        height: 40px;
+        width: 269px;
+        padding-left: 15px;
+        margin: 13px 12px;
+        align-items: center;
+    }
+
+    #project_textarea {
+        margin-left: 12px;
+        margin-bottom: 3px;
+        border: none;
+        outline: none;
+        padding: 7px 12px;
+        overflow: auto;
+        resize: none;
+        height: auto;
+        width: 269px;
+    }
+
+    .project_btn {
+        width: 130px;
+        height: 45px;
+        font-size: 100px;
+        border-radius: 10px;
+        border: none;
+        font-size: 20px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+        background-color: #1a91f0;
+    }
+
+    .project_btn_container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+
+@media screen and (max-width:280px) {
+
+    .project_container {
+        display: flex;
+        align-items: center;
+        width: auto;
+        justify-content: center;
+    }
+
+    .project_heading { 
+        display: flex;
+        justify-content: center;
+        font-size: 35px;
+        margin-top: 4px;
+        height: auto;
+        width: auto;
+    }
+
+    .project_sub_container {
+        display: flex;
+        flex-wrap: wrap;
+        width: auto;
+        height: auto;
+    }
+
+    .project_input {
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        height: 45px;
+        width: 242px;
+        padding-left: 15px;
+        margin: 8px 20px;
+        align-items: center;
+    }
+
+    #project_textarea {
+        margin-left: 21px;
+        margin-bottom: 3px;
+        border: none;
+        outline: none;
+        padding: 7px 12px;
+        overflow: auto;
+        resize: none;
+        height: auto;
+        width: 240px;
+    }
+
+    .add_remove{
+        width: 107px;
+        margin-left: 18px;
+    }
+
+    .project_btn {
+        width: 110px;
+        height: 35px;
+        font-size: 70px;
+        border-radius: 10px;
+        border: none;
+        font-size: 20px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+        background-color: #1a91f0;
+    }
+
+    .project_btn_container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 259px;
+        margin-top: 10px;
+    }
+}

@@ -1,0 +1,41 @@
+* {
+  animation: fadeInAnimation ease 0.3s;
+  animation-fill-mode: forwards;
+  font-family: headingFont;
+}
+
+body {
+  margin: 0px;
+  background-size: 400%;
+  box-sizing: border-box;
+  background: rgb(203, 203, 203);
+  background: radial-gradient(circle, rgba(203, 203, 203, 1) 0%, rgba(209, 209, 209, 1) 50%, rgba(119, 119, 119, 1) 100%);
+}
+
+ @font-face {
+  font-family: headingFont;
+  src: url(../public/univeralFont.ttf); 
+} 
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+.toast-top-center {
+  top: 20px !important;
+}
+
+.toast-success {
+  margin-top: 10px;
+  background-color: #5cb85c; 
+}
+
+.toast-error {
+  margin-top: 10px;
+  background-color: #d9534f;
+}

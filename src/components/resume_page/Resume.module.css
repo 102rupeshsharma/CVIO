@@ -1,0 +1,152 @@
+
+
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: transparent;
+
+}
+
+#Cv_container {
+  margin: 20px 10px;
+  max-height: 700px;
+  width: 908px;
+  border: 1px solid black;
+  overflow-y: auto;
+  padding: 20px;
+  scrollbar-width: thin;
+  background-color: white;
+}
+
+#Cv_container::-webkit-scrollbar {
+  display: none;
+  width: 0px;
+}
+
+#Cv_container {
+  -ms-overflow-style: none;  
+  scrollbar-width: none; 
+}
+
+#Cv_container::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+
+.name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  padding-top: 40px;
+  margin: 0px 20px;
+  font-weight: 600;
+  font-family:sans-serif;
+}
+
+.basicInfo {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 40px;
+    margin-top: 20px;
+    font-family:sans-serif;
+}
+
+span {
+  display: inline;
+  color: black;
+  font-family:sans-serif;
+}
+.skills{
+  font-size: 10px;
+  font-family:sans-serif;
+}
+.gmail {
+  margin-top: 4px;
+  font-size: 15px;
+  text-decoration: none;
+  font-family:sans-serif;
+}
+
+#phone,
+#city,
+#state {
+  display: inline;
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+  font-family:sans-serif;
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  font-family:sans-serif;
+}
+
+.summary {
+  margin: 26px 40px 0px 40px;
+  font-size: 16px;
+  font-family:sans-serif;
+}
+
+hr {
+  width: auto;
+  height: 3px;
+  margin: 20px 40px;
+  background-color: black;
+}
+
+.skills {
+  display: flex;
+  margin-top: 10px;
+  margin: 0px 40px;
+  display: flex;
+  font-size: 30px;
+  font-family:sans-serif;
+}
+
+
+.details {
+  font-size: 16px;
+  font-weight: 600;
+  font-family:sans-serif;
+}
+
+
+.projectNameHeader,
+.educationHeader,
+.companyHeader,
+.personalInfoHeader,
+.skillheader {
+  margin: 0px 25px;
+  padding: 22px 0px;
+  font-size: 19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.personalInfo, .collegeInfo, .companyInfo, .projectInfo {
+  width: 785px;
+  margin: 0px 40px;
+  justify-content: space-between;
+  font-family:sans-serif;
+}
+
+.downlordbtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
+
+.download {
+  width: 160px;
+  height: 40px;
+  outline: none;
+  border: none;
+  background-color: #1a91f0;
+  cursor: pointer;
+  border-radius: 5px;
+}

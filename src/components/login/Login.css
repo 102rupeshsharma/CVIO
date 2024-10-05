@@ -1,0 +1,476 @@
+.login_main_container {
+    background: rgb(203, 203, 203);
+    background: radial-gradient(circle, rgba(203, 203, 203, 1) 0%, rgba(209, 209, 209, 1) 50%, rgba(119, 119, 119, 1) 100%);
+    width: 100vw;
+    height: 100vh;
+}
+
+
+.login_container {
+    background-color: rgb(12, 76, 139);
+    width: 1000px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.login_heading {
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+.login_form {
+    background-color: rgb(255, 255, 255);
+    height: 379px;
+    width: auto;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    padding: 10px;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.login_input {
+    width: 310px;
+    height: 42px;
+    border-radius: 5px;
+    margin: 5px 32px;
+    border: none;
+    padding-left: 10px;
+    background-color: rgb(210, 214, 214);
+}
+
+.login_btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.login_submit {
+    width: 310px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    background-color: #6464c0;
+    outline: none;
+    cursor: pointer;
+}
+
+.login_submit:disabled {
+    cursor: default;
+}
+
+.login_signinText {
+    display: flex;
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_signinText span {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+
+.Login_href {
+    text-decoration: none;
+    font-size: 20px;
+    cursor: pointer;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+.register{
+    cursor: pointer;
+    color: #6464c0;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+
+.login_InfoContainer {
+    background-color: transparent;
+    width: 460px;
+    height: 580px;
+}
+
+.login_header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 100px;
+}
+
+.login_header img {
+    width: 66px;
+    height: 54px;
+    padding-right: 8px;
+}
+
+.login_header span {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+.login_info {
+    width: 444px;
+    height: auto;
+    margin: 20px;
+    background-color: transparent;
+}
+
+.login_info span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin: 5px 0px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+}
+
+.login_forgotPassword {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.login_footer {
+    display: flex;
+    justify-content: center;
+}
+
+.login_signup {
+    width: 150px;
+    height: 35px;
+    border-radius: 5px;
+    background-color: #6464c0;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+
+@media screen and (max-width:1020px) {
+
+    .container {
+        background-color: rgb(7, 64, 120);
+        width: 800px;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    input {
+        width: 250px;
+        height: 42px;
+        border-radius: 5px;
+        margin: 5px 32px;
+        border: none;
+        padding-left: 10px;
+        background-color: rgb(210, 214, 214);
+    }
+
+    .submit {
+        width: 250px;
+        height: 40px;
+        border-radius: 5px;
+        border: none;
+        background-color: #6464c0;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .InfoContainer {
+        background-color: transparent;
+        width: 446px;
+        height: 511px;
+    }
+
+    .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 35px;
+        font-family: 'Times New Roman', Times, serif;
+        margin-top: 80px;
+    }
+
+    img {
+        width: 56px;
+        height: 41px;
+        padding-right: 8px;
+    }
+
+    .info {
+        width: 390px;
+        height: auto;
+        margin: 28px;
+        background-color: transparent;
+    }
+
+    .info span {
+        font-size: 15px;
+    }
+
+    span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        margin: 5px 0px;
+    }
+}
+
+@media screen and (max-width:840px) {
+
+    .container {
+        background-color: rgb(7, 64, 120);
+        width: 700px;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap-reverse;
+        border-radius: 10px;
+        margin: 10px 0px;
+    }
+
+    .heading {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 35px;
+        display: flex;
+        justify-content: center;
+        margin: 20px;
+    }
+
+    input {
+        width: 430px;
+        height: 42px;
+        border-radius: 5px;
+        margin: 5px 32px;
+        border: none;
+        padding-left: 10px;
+        background-color: rgb(210, 214, 214);
+    }
+
+    .submit {
+        width: 430px;
+        height: 40px;
+        border-radius: 5px;
+        border: none;
+        background-color: #6464c0;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .InfoContainer {
+        background-color: transparent;
+        width: auto;
+        height: 320px;
+    }
+
+    .footer{
+        display: none;
+    }
+
+}
+
+@media screen and (max-width:707px) {
+
+    .container {
+        background-color: rgb(7, 64, 120);
+        width: 550px;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap-reverse;
+        border-radius: 10px;
+        margin: 10px 0px;
+    }
+
+    input {
+        width: 320px;
+        height: 42px;
+        border-radius: 5px;
+        margin: 5px 32px;
+        border: none;
+        padding-left: 10px;
+        background-color: rgb(210, 214, 214);
+    }
+
+    .submit {
+        width: 320px;
+        height: 40px;
+        border-radius: 5px;
+        border: none;
+        background-color: #6464c0;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .InfoContainer {
+        background-color: transparent;
+        width: 446px;
+        height: 290px;
+    }
+
+    .signup {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width:580px) {
+
+    .container {
+        background-color: rgb(7, 64, 120);
+        width: 435px;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap-reverse;
+        border-radius: 10px;
+        margin: 10px 0px;
+    }
+
+    input {
+        width: 260px;
+        height: 36px;
+        border-radius: 5px;
+        margin: 5px 32px;
+        border: none;
+        padding-left: 10px;
+        background-color: rgb(210, 214, 214);
+    }
+
+    .submit {
+        width: 260px;
+        height: 40px;
+        border-radius: 5px;
+        border: none;
+        background-color: #6464c0;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+        font-family: 'Times New Roman', Times, serif;
+        margin-top: 13px;
+    }
+
+    .InfoContainer {
+        background-color: transparent;
+        width: 446px;
+        height: 200px;
+    }
+}
+
+@media screen and (max-width:448px) {
+
+    .container {
+        background-color: rgb(7, 64, 120);
+        width: 435px;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        flex-wrap: wrap-reverse;
+        border-radius: 10px;
+        padding: 20px 0px;
+        /* margin: 10px 0px; */
+    }
+
+    input {
+        width: 200px;
+        height: 36px;
+        border-radius: 5px;
+        border: none;
+        background-color: rgb(210, 214, 214);
+    }
+
+    .submit {
+        width: 200px;
+        height: 40px;
+        border-radius: 5px;
+        border: none;
+        background-color: #6464c0;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .heading {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 37px;
+        display: flex;
+        justify-content: center;
+        margin: 20px;
+    }
+
+    .form {
+        background-color: rgb(255, 255, 255);
+        height: auto;
+        width: 270px;
+        margin-top: 10px;
+        justify-content: center;
+        border-radius: 10px;
+    }
+
+    .btn {
+        margin-left: 17px;
+    }
+
+    .InfoContainer {
+        background-color: transparent;
+        width: 460px;
+        height: 180px;
+    }
+
+    .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+        font-family: 'Times New Roman', Times, serif;
+        margin-top: 13px;
+    }
+
+    img {
+        width: 54px;
+        height: 38px;
+        padding-right: 8px;
+    }
+
+    .info span {
+        font-size: 11px;
+    }
+
+
+    .info {
+        width: 390px;
+        height: auto;
+        margin: 20px 0px;
+        background-color: transparent;
+    }
+
+    span {
+        font-size: 13px;
+    }
+
+    .header span {
+        font-size: 37px;
+    }
+}
+
+@media screen and (max-width:440px) {
+    .info {
+        margin: 20px 23px;
+    }
+}

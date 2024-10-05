@@ -1,0 +1,645 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.work_container {
+    align-items: center;
+    width: auto;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.work_heading {
+    font-family: headingFont;
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    font-weight: 500;
+    color: #3c3a3a;
+}
+
+.work_sub_container {
+    display: grid;
+    grid-template-columns: 300px 300px;
+    grid-column-gap: 80px;
+    width: 750px;
+    height: auto;
+    margin: auto;
+}
+
+.work_inputtext {
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 350px;
+    padding-left: 12px;
+    margin: 17px 12px;
+    align-items: center;
+    background-color: white;
+    font-family: headingFont;
+    color: #313030;
+}
+
+.work_date_Container {
+    display: flex;
+    width: 374px;
+}
+
+.work_date_Container input {
+    width: 163px;
+    font-family: headingFont;
+    padding: 6px 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    height: 50px;
+    margin-right: 10px;
+    align-items: center;
+}
+
+#work_textarea {
+    margin: 0px 0px 10px 12px;
+    border: none;
+    width: 728px;
+    outline: none;
+    padding: 5px 5px;
+    overflow: auto;
+    resize: none;
+    height: auto;
+    background-color: white;
+    font-family: headingFont;
+    color: #313030;
+}
+
+.work_textarea {
+    grid-column: 1/ span 2;
+}
+
+.work_btn_container {
+    display: flex;
+    gap: 10px;
+}
+
+
+.work_btn_container {
+    display: flex;
+    justify-content: space-around;
+    margin: 50px auto;
+}
+
+.work_btn {
+    font-family: headingFont;
+    width: 160px;
+    height: 59px;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    background-color: rgb(41, 158, 181);
+}
+
+.work_btn:hover {
+    background-color: rgb(0, 174, 209);
+    transform: translateY(-2px);
+}
+
+.work_btn[disabled] {
+    background-color: rgb(25, 103, 130);
+    cursor: default;
+    transform: translate(0px);
+}
+
+@media screen and (max-width:775px) {
+
+    .work_container {
+        justify-content: center;
+        height: auto;
+    }
+
+    .work_heading {
+        font-size: 45px;
+        margin-top: 10px;
+        height: auto;
+        width: auto;
+    }
+
+
+    .work_sub_container {
+        display: grid;
+        grid-template-columns: 300px 300px;
+        grid-column-gap: 15px;
+        width: 620px;
+        height: auto;
+        margin: 20px auto;
+    }
+
+    .work_inputtext {
+        box-sizing: border-box;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        height: 47px;
+        width: 276px;
+        margin: 17px 14px;
+    }
+
+    .work_date_Container {
+        width: 324px;
+    }
+
+    .work_date_Container input {
+        width: 123px;
+    }
+
+    #work_textarea {
+        width: 595px;
+    }
+
+    .work_btn_container {
+        display: flex;
+        margin-top: 20px;
+        width: 605px;
+        justify-content: space-between;
+    }
+
+    .work_move_btn {
+        width: 160px;
+        height: 60px;
+        font-size: 100px;
+        border-radius: 10px;
+        border: none;
+        font-size: 20px;
+        background-color: #1a91f0;
+    }
+}
+
+
+@media screen and (max-width:630px) {
+
+    .work_container {
+        justify-content: center;
+        height: auto;
+    }
+
+    .work_heading {
+        display: flex;
+        justify-content: center;
+        font-size: 34px;
+        margin-top: 10px;
+        height: auto;
+        width: auto;
+    }
+
+    .work_sub_container {
+        display: grid;
+        grid-template-columns: 260px 260px;
+        grid-column-gap: 15px;
+        width: 540px;
+        height: auto;
+        margin: 20px auto;
+    }
+
+    .work_inputtext {
+        box-sizing: border-box;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        height: 47px;
+        width: 250px;
+        padding-left: 12px;
+        margin: 17px 14px;
+        align-items: center;
+        background-color: white;
+    }
+
+    .work_date_Container input {
+        width: 124px;
+        font-family: 'Arial', sans-serif;
+        padding: 6px 10px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        height: 50px;
+        padding-left: 12px;
+        margin: 17px 6px;
+        align-items: center;
+    }
+
+    #work_textarea {
+        margin: 0px 0px 10px 12px;
+        border: none;
+        width: 529px;
+        outline: none;
+        padding: 5px 5px;
+        overflow: auto;
+        resize: none;
+        height: auto;
+
+    }
+
+    .work_btn_container {
+        display: flex;
+        margin-top: 20px;
+        width: 547px;
+        justify-content: space-between;
+    }
+
+    button {
+        color: white;
+        width: 130px;
+        height: 36px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background-color: #1a91f0;
+    }
+
+    .work_move_btn {
+        width: 140px;
+        height: 45px;
+        font-size: 100px;
+        border-radius: 10px;
+        border: none;
+        font-size: 20px;
+        background-color: #1a91f0;
+    }
+}
+
+@media screen and (max-width:565px) {
+
+    .work_container {
+        justify-content: center;
+        height: auto;
+    }
+
+    .work_heading {
+        display: flex;
+        justify-content: center;
+        font-size: 34px;
+        margin-top: 10px;
+        height: auto;
+        width: auto;
+    }
+
+    .work_sub_container {
+        display: grid;
+        grid-template-columns: 225px 225px;
+        grid-column-gap: 15px;
+        width: 495px;
+        height: auto;
+        margin: 0px auto;
+    }
+
+    .work_inputtext {
+        box-sizing: border-box;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        height: 47px;
+        width: 221px;
+        padding-left: 12px;
+        margin: 17px 14px;
+        align-items: center;
+    }
+
+    .work_date_Container {
+        width: 495px;
+        grid-column: 1/ span 2;
+    }
+
+    .work_city {
+        grid-column: 1/span 2;
+    }
+
+    .work_city input {
+        width: 463px;
+    }
+
+    .work_date_Container {
+        width: auto;
+        margin: auto;
+    }
+
+    .work_date_Container input {
+        width: 219px;
+        font-family: 'Arial', sans-serif;
+        padding: 6px 10px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        height: 50px;
+        padding-left: 12px;
+        margin: 17px 12px;
+        align-items: center;
+    }
+
+    #work_textarea {
+        margin: 0px 0px 10px 12px;
+        border: none;
+        width: 463px;
+        outline: none;
+        padding: 5px 5px;
+        overflow: auto;
+        resize: none;
+        height: auto;
+
+    }
+
+    .work_btn_container {
+        display: flex;
+        margin-top: 20px;
+        width: 463px;
+        justify-content: space-between;
+    }
+
+    .work_move_btn {
+        width: 140px;
+        height: 45px;
+        font-size: 100px;
+        border-radius: 10px;
+        border: none;
+        font-size: 20px;
+        background-color: #1a91f0;
+    }
+}
+
+@media screen and (max-width:520px) {
+
+    .work_container {
+        justify-content: center;
+        height: auto;
+        margin: auto;
+    }
+
+    .work_heading {
+        display: flex;
+        justify-content: center;
+        font-size: 34px;
+        margin-top: 10px;
+        height: auto;
+        width: auto;
+    }
+
+    .work_sub_container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 363px;
+        height: auto;
+        margin: 20px auto;
+    }
+
+    .work_inputtext {
+        box-sizing: border-box;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        height: 47px;
+        width: 336px;
+        padding-left: 12px;
+        margin: 17px 25px;
+        margin-left: 15px;
+        align-items: center;
+    }
+
+    .work_date_Container input {
+        width: 160px;
+        font-family: "Arial", sans-serif;
+        box-sizing: border-box;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        height: 46px;
+        padding-left: 7px;
+        margin: 17px 8px;
+        align-items: center;
+    }
+
+    .work_city input {
+        width: 338px;
+    }
+
+    #work_textarea {
+        width: 338px;
+    }
+
+    .work_btn_container {
+        display: flex;
+        margin-top: 20px;
+        justify-content: space-between;
+    }
+
+    .work_move_btn {
+        width: 153px;
+        height: 49px;
+        font-size: 100px;
+        border-radius: 10px;
+        border: none;
+        font-size: 20px;
+        background-color: #1a91f0;
+    }
+}
+
+
+
+@media screen and (min-width:309px) and (max-width:412px) {
+
+    .work_container {
+        justify-content: center;
+        height: auto;
+    }
+
+    .work_heading {
+        display: flex;
+        justify-content: center;
+        font-size: 40px;
+        font-weight: 500;
+        margin-top: 10px;
+        height: auto;
+        width: auto;
+    }
+
+    .work_sub_container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 309px;
+        height: auto;
+        margin: 10px auto;
+    }
+
+    .work_inputtext {
+        box-sizing: border-box;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        height: 42px;
+        width: 285px;
+        padding-left: 12px;
+        margin: 17px 14px;
+        align-items: center;
+    }
+
+    .work_date_Container {
+        margin: 0px 0px 0px 8px;
+    }
+
+    .work_date_Container input {
+        width: 137px;
+        font-family: "Arial", sans-serif;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        height: 45px;
+        padding-left: 9px;
+        margin: 10px 5px;
+    }
+
+    .work_city input {
+        width: 285px;
+    }
+
+    #work_textarea {
+        margin: 0px 0px 10px 12px;
+        border: none;
+        width: 290px;
+        outline: none;
+        padding: 5px 5px;
+        overflow: auto;
+        resize: none;
+        height: auto;
+        margin-left: 10px;
+
+    }
+
+    .work_btn_container {
+        display: flex;
+        width: 293px;
+        margin-top: 20px;
+        justify-content: space-between;
+    }
+
+    .work_move_btn {
+        width: 133px;
+        height: 49px;
+        font-size: 100px;
+        border-radius: 10px;
+        border: none;
+        font-size: 20px;
+        background-color: #1a91f0;
+    }
+
+    #work_addMore {
+        margin: 0px 0px 36px 15px;
+    }
+}
+
+@media screen and (max-width:308px) {
+
+    .work_container {
+        justify-content: center;
+        height: auto;
+        margin: 0px 15px;
+    }
+
+    .work_heading {
+        display: flex;
+        justify-content: center;
+        font-size: 35px;
+        font-weight: 500;
+        margin-top: 10px;
+        height: auto;
+        width: auto;
+    }
+
+    .work_sub_container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 234px;
+        height: auto;
+        margin: 20px auto;
+    }
+
+    .work_inputtext {
+        box-sizing: border-box;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        height: 32px;
+        width: 207px;
+        padding-left: 8px;
+        margin: 17px 14px;
+        align-items: center;
+    }
+
+    .work_date_Container {
+        margin: 0px 0px 0px 8px;
+    }
+
+    .work_date_Container input {
+        width: 99px;
+        font-family: "Arial", sans-serif;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        height: 37px;
+        padding-left: 9px;
+        margin: 10px 5px;
+    }
+
+    .work_city input {
+        width: 207px;
+    }
+
+    #work_textarea {
+        margin: 0px 0px 10px 15px;
+        border: none;
+        width: 207px;
+        outline: none;
+        padding: 5px 5px;
+        overflow: auto;
+        resize: none;
+        height: auto;
+        margin-left: 10px;
+
+    }
+
+    .work_btn_container {
+        display: flex;
+        /* flex-wrap: wrap; */
+        width: 238px;
+        margin: 21px 5px 5px 7px;
+        justify-content: space-evenly;
+    }
+
+    button {
+        color: white;
+        width: 100px;
+        height: 33px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background-color: #1a91f0;
+    }
+
+    .work_move_btn {
+        width: 100px;
+        margin: 0px 0px 15px 0px;
+        height: 25px;
+        font-size: 100px;
+        border-radius: 10px;
+        border: none;
+        font-size: 20px;
+        background-color: #1a91f0;
+    }
+
+    .work_btn {
+        width: 160px;
+        height: 36px;
+    }
+}
