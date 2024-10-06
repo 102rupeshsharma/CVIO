@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import { ResumeContext } from "../../context/ResumeContext";
 import Header from "../header/Header";
-import "./Experience.css";  
+import "./Experience.css";
 import { useNavigate } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
 
-const Experience = () => {  
+const Experience = () => {
   const { workExperience, setWorkExperience } = useContext(ResumeContext);
   const [localWorkExperience, setLocalWorkExperience] = useState(workExperience);
   const [errors, setErrors] = useState([]);
@@ -17,10 +17,35 @@ const Experience = () => {
     updatedExperience[index][name] = value;
     setLocalWorkExperience(updatedExperience);
 
-    // Clear specific error when a field is updated
+    // Clear the error for the specific field when it changes
     setErrors((prevErrors) => {
       const newErrors = [...prevErrors];
-      newErrors[index] = { ...newErrors[index], [name]: "" };
+      if (newErrors[index]) {
+        newErrors[index][name] = "";
+      }
+      return newErrors;
+    });
+  };
+
+  const handleBlur = (e, index) => {
+    const { name, value } = e.target;
+    let errorMessage = "";
+
+    if (!value) {
+      // Check for the specific field and set the corresponding error message
+      if (name === "company") errorMessage = "*Enter company name";
+      if (name === "position") errorMessage = "*Enter position";
+      if (name === "city") errorMessage = "*Enter city";
+      if (name === "description") errorMessage = "*Enter job description";
+    }
+
+    // Update only the error for the specific field that was blurred
+    setErrors((prevErrors) => {
+      const newErrors = [...prevErrors];
+      if (!newErrors[index]) {
+        newErrors[index] = {};
+      }
+      newErrors[index][name] = errorMessage;
       return newErrors;
     });
   };
@@ -37,7 +62,7 @@ const Experience = () => {
         description: "",
       },
     ]);
-    setErrors([...errors, {}]); // Add a new blank error object for the new experience entry
+    setErrors([...errors, {}]); // Add a blank error object for the new experience entry
   };
 
   const remove = (index) => {
@@ -50,8 +75,10 @@ const Experience = () => {
     setErrors(updatedErrors);
   };
 
-  const validateForm = () => {
-    const errors = localWorkExperience.map((exp) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Validate the entire form before submission
+    const validationErrors = localWorkExperience.map((exp) => {
       const errorObj = {};
       if (!exp.company) errorObj.company = "*Enter company name";
       if (!exp.position) errorObj.position = "*Enter position";
@@ -60,13 +87,11 @@ const Experience = () => {
       return errorObj;
     });
 
-    setErrors(errors);
-    return errors.every((error) => Object.keys(error).length === 0);
-  };
+    setErrors(validationErrors);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validateForm()) {
+    // Check if there are any errors
+    const isValid = validationErrors.every((error) => Object.keys(error).length === 0);
+    if (isValid) {
       setWorkExperience(localWorkExperience);
       navigate("/project");
     }
@@ -87,6 +112,7 @@ const Experience = () => {
                   name="company"
                   value={detail.company}
                   onChange={(e) => handleChange(e, i)}
+                  onBlur={(e) => handleBlur(e, i)}  // Call handleBlur on blur
                   placeholder="Company Name"
                   className="work_inputtext"
                 />
@@ -100,6 +126,7 @@ const Experience = () => {
                   name="position"
                   value={detail.position}
                   onChange={(e) => handleChange(e, i)}
+                  onBlur={(e) => handleBlur(e, i)}  // Call handleBlur on blur
                   placeholder="Position"
                   className="work_inputtext"
                 />
@@ -115,7 +142,7 @@ const Experience = () => {
                   onChange={(e) => handleChange(e, i)}
                   className="work_inputtext"
                   placeholder="Start date"
-                /> 
+                />
                 <input
                   type="month"
                   name="endDate"
@@ -123,7 +150,7 @@ const Experience = () => {
                   onChange={(e) => handleChange(e, i)}
                   className="work_inputtext"
                   placeholder="End date"
-                /> 
+                />
               </div>
 
               {/* City */}
@@ -133,6 +160,7 @@ const Experience = () => {
                   name="city"
                   value={detail.city}
                   onChange={(e) => handleChange(e, i)}
+                  onBlur={(e) => handleBlur(e, i)}  // Call handleBlur on blur
                   placeholder="City"
                   className="work_inputtext"
                 />
@@ -145,6 +173,7 @@ const Experience = () => {
                   name="description"
                   value={detail.description}
                   onChange={(e) => handleChange(e, i)}
+                  onBlur={(e) => handleBlur(e, i)}  // Call handleBlur on blur
                   cols="98"
                   rows="5"
                   style={{ resize: "vertical" }}

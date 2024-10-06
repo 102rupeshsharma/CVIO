@@ -25,6 +25,27 @@ const Project = () => {
     });
   };
 
+  const handleBlur = (index, e) => {
+    const { name, value } = e.target;
+    let errorMessage = "";
+
+    if (!value) {
+      if (name === "projectTitle") errorMessage = "*Enter project title";
+      if (name === "projectUrl") errorMessage = "*Enter project URL";
+      if (name === "projectDescription") errorMessage = "*Enter project description";
+    }
+
+    // Update the specific error for the field that was blurred
+    setErrors((prevErrors) => {
+      const newErrors = [...prevErrors];
+      if (!newErrors[index]) {
+        newErrors[index] = {};
+      }
+      newErrors[index][name] = errorMessage;
+      return newErrors;
+    });
+  };
+
   const addMore = () => {
     setLocalProject([
       ...localProject,
@@ -100,6 +121,7 @@ const Project = () => {
                   placeholder="Project Title"
                   value={detail.projectTitle}
                   onChange={(e) => handleChange(i, e)}
+                  onBlur={(e) => handleBlur(i, e)} // Call handleBlur on blur
                 />
                 {errors[i]?.projectTitle && <small className="error-message">{errors[i].projectTitle}</small>}
               </div>
@@ -113,6 +135,7 @@ const Project = () => {
                   placeholder="Project URL"
                   value={detail.projectUrl}
                   onChange={(e) => handleChange(i, e)}
+                  onBlur={(e) => handleBlur(i, e)} // Call handleBlur on blur
                 />
                 {errors[i]?.projectUrl && <small className="error-message">{errors[i].projectUrl}</small>}
               </div>
@@ -127,6 +150,7 @@ const Project = () => {
                   placeholder="Enter the project description"
                   value={detail.projectDescription}
                   onChange={(e) => handleChange(i, e)}
+                  onBlur={(e) => handleBlur(i, e)} // Call handleBlur on blur
                 />
                 {errors[i]?.projectDescription && <small className="error-message">{errors[i].projectDescription}</small>}
               </div>

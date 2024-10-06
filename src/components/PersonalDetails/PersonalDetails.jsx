@@ -7,9 +7,32 @@ import "./PersonalDetails.css";
 const PersonalDetails = () => {
   const navigate = useNavigate();
   const { PersonalDetails, setPersonalDetails } = useContext(ResumeContext);
-  const [ localPersonalDetails, setlocalPersonalDetails] = useState(PersonalDetails);
+  const [localPersonalDetails, setlocalPersonalDetails] = useState(PersonalDetails);
   const [touchedFields, setTouchedFields] = useState({});
   const [errors, setErrors] = useState({});
+
+  // Function to validate individual fields
+  const validateField = (name, value) => {
+    let fieldError = "";
+
+    if (name === "fullname" && !value.trim()) {
+      fieldError = "*Enter your full name";
+    } else if (name === "linkdinprofileurl" && !value.trim()) {
+      fieldError = "*Enter your LinkedIn profile URL";
+    } else if (name === "email" && !value.includes("@")) {
+      fieldError = "*Enter a valid email";
+    } else if (name === "phone" && value.length !== 10) {
+      fieldError = "*Enter a valid 10-digit phone number";
+    } else if (name === "description" && !value.trim()) {
+      fieldError = "*Describe yourself";
+    } else if (name === "city" && !value.trim()) {
+      fieldError = "*Enter your city";
+    } else if (name === "state" && !value.trim()) {
+      fieldError = "*Enter your state";
+    }
+
+    return fieldError;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();      
@@ -17,69 +40,47 @@ const PersonalDetails = () => {
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
     } else {
-    setPersonalDetails(localPersonalDetails);
-    navigate("/experience");
-  };
+      setPersonalDetails(localPersonalDetails);
+      navigate("/experience");
+    }
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setlocalPersonalDetails({
       ...localPersonalDetails,
-      [name]:value
+      [name]: value
     });
     
-    setErrors((prevErrors) => {
-      const newErrors = { ...prevErrors };
-      if (touchedFields[name]) {
-        if (name === "fullname" && value.trim()) {
-          delete newErrors.fullname;
-        }
-        if (name === "linkdinprofileurl" && value.trim()) {
-          delete newErrors.linkdinprofileurl;
-        }
-        if (name === "email" && value.includes("@")) {
-          delete newErrors.email;
-        }
-        if (name === "phone" && value.length === 10) {
-          delete newErrors.phone;
-        }
-        if (name === "description" && value.trim()) {
-          delete newErrors.description;
-        }
-        if (name === "city" && value.trim()) {
-          delete newErrors.city;
-        }
-        if (name === "state" && value.trim()) {
-          delete newErrors.state;
-        }
-      }
-      return newErrors;
-    });
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: validateField(name, value)
+    }));
   };
 
   const handleBlur = (e) => {
-    const { name } = e.target;
-    setTouchedFields((prev) => ({...prev, [name]:true}));
-    const validationErrors = validate()
-    setErrors(validationErrors);
-  }
+    const { name, value } = e.target;
+    setTouchedFields((prev) => ({
+      ...prev,
+      [name]: true
+    }));
+
+    // Validate the specific field when the user leaves it (onBlur event)
+    const fieldError = validateField(name, value);
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: fieldError
+    }));
+  };
 
   const validate = () => {
     let formErrors = {};
-    if (!localPersonalDetails.fullname) formErrors.fullname = "*Enter your full name";
-    if (!localPersonalDetails.linkdinprofileurl)
-      formErrors.linkdinprofileurl = "*Enter your LinkedIn profile URL";
-    if (!localPersonalDetails.email) formErrors.email = "*Enter a valid email";
-    if (!localPersonalDetails.phone || localPersonalDetails.phone.length !== 10)
-      formErrors.phone = "*Enter a valid 10-digit phone number";
-    if (!localPersonalDetails.description) formErrors.description = "*Describe yourself";
-    if (!localPersonalDetails.city) formErrors.city = "*Enter your city";
-    if (!localPersonalDetails.state) formErrors.state = "*Enter your state";
+    Object.keys(localPersonalDetails).forEach((fieldName) => {
+      const fieldError = validateField(fieldName, localPersonalDetails[fieldName]);
+      if (fieldError) formErrors[fieldName] = fieldError;
+    });
     return formErrors;
   };
-
-  
 
   return (
     <>
@@ -114,9 +115,7 @@ const PersonalDetails = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
-                {errors.linkdinprofileurl && (
-                  <small>{errors.linkdinprofileurl}</small>
-                )}
+                {errors.linkdinprofileurl && <small>{errors.linkdinprofileurl}</small>}
               </div>
 
               <div>

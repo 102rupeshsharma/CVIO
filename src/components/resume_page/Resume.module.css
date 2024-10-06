@@ -90,9 +90,8 @@ span {
 }
 
 hr {
-  width: auto;
   height: 3px;
-  margin: 20px 40px;
+  margin: 0px 40px;
   background-color: black;
 }
 
@@ -113,11 +112,7 @@ hr {
 }
 
 
-.projectNameHeader,
-.educationHeader,
-.companyHeader,
-.personalInfoHeader,
-.skillheader {
+.headers{
   margin: 0px 25px;
   padding: 22px 0px;
   font-size: 19px;

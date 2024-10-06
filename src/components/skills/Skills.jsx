@@ -6,14 +6,15 @@ import { ResumeContext } from '../../context/ResumeContext';
 
 const Skills = () => {
   const navigate = useNavigate();
-
-  const {skills, setSkills} = useContext(ResumeContext);
+  const { skills, setSkills } = useContext(ResumeContext);
   const [skillValue, setSkillValue] = useState('');
   const [error, setError] = useState('');
 
   const addSkill = () => {
     if (skillValue.length < 2) {
       setError('*Add at least one valid skill');
+    } else if (skills.includes(skillValue)) {
+      setError('*Skill already added');
     } else {
       setSkills([...skills, skillValue]);
       setSkillValue('');
@@ -27,6 +28,10 @@ const Skills = () => {
 
   const handleInputChange = (event) => {
     setSkillValue(event.target.value);
+    // Clear error message when user starts typing
+    if (error) {
+      setError('');
+    }
   };
 
   const handleSubmit = (event) => {
@@ -41,14 +46,12 @@ const Skills = () => {
 
   return (
     <>
-
-    <Header />
+      <Header />
       <div className="skill_heading">Skills</div>
 
       <div className="skill_container">
         <form onSubmit={handleSubmit}>
           <div className="skill_sub_container">
-
             <div className="skills_input_container">
               <input
                 type="text"
@@ -57,25 +60,25 @@ const Skills = () => {
                 name="skill"
                 value={skillValue}
                 onChange={handleInputChange}
+                aria-label="Input for adding a skill"
               />
-              {error && <small>{error}</small>}
+              {error && <small className="error_message">{error}</small>}
             </div>
-
-            
-              <button
-                disabled={skillValue.length < 2}
-                type="button"
-                className="skill_addbtn"
-                onClick={addSkill}
-              >
-                Add
-              </button>
+            <button
+              disabled={skillValue.length < 2}
+              type="button"
+              className="skill_addbtn"
+              onClick={addSkill}
+            >
+              Add
+            </button>
           </div>
 
           <div className="skills">
             {skills.map((skill, index) => (
-              <span key={index} className="skills_tag">{skill}
-               <button
+              <span key={index} className="skills_tag">
+                {skill}
+                <button
                   type="button"
                   className="delete-skill"
                   onClick={() => deleteSkill(skill)}
@@ -98,13 +101,10 @@ const Skills = () => {
             <button
               type="submit"
               className="skill_btn"
-              disabled={skills.length === 0}
-              onClick={handleSubmit}
             >
               Next
             </button>
           </div>
-          
         </form>
       </div>
     </>

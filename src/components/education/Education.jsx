@@ -16,13 +16,33 @@ const Education = () => {
     const updatedEducation = [...localEducation];
     updatedEducation[index][name] = value;
     setLocalEducation(updatedEducation);
-
+    
     // Clear specific error when a field is updated
     setErrors((prevErrors) => {
       const newErrors = [...prevErrors];
       newErrors[index] = { ...newErrors[index], [name]: "" };
       return newErrors;
     });
+  };
+
+  const handleBlur = (index, e) => {
+    validateField(index, e);
+  };
+
+  const validateField = (index, e) => {
+    const { name, value } = e.target;
+    const newErrors = [...errors];
+
+    if (!value) {
+      if (name === "school") newErrors[index] = { ...newErrors[index], school: "Enter college name" };
+      if (name === "degree") newErrors[index] = { ...newErrors[index], degree: "Enter degree" };
+      if (name === "city") newErrors[index] = { ...newErrors[index], city: "Enter city" };
+      if (name === "description") newErrors[index] = { ...newErrors[index], description: "Enter description" };
+    } else {
+      newErrors[index] = { ...newErrors[index], [name]: "" }; // Clear error for the field if value is present
+    }
+
+    setErrors(newErrors);
   };
 
   const addMore = () => {
@@ -51,9 +71,9 @@ const Education = () => {
     setErrors(updatedErrors);
   };
 
-  // Function to validate the form fields
+  // Function to validate the entire form
   const validateForm = () => {
-    const errors = localEducation.map((edu) => {
+    const formErrors = localEducation.map((edu) => {
       const errorObj = {};
       if (!edu.school) errorObj.school = "Enter college name";
       if (!edu.degree) errorObj.degree = "Enter degree";
@@ -62,8 +82,8 @@ const Education = () => {
       return errorObj;
     });
 
-    setErrors(errors);
-    return errors.every((error) => Object.keys(error).length === 0);
+    setErrors(formErrors);
+    return formErrors.every((error) => Object.keys(error).length === 0);
   };
 
   const handleSubmit = (e) => {
@@ -91,6 +111,7 @@ const Education = () => {
                   placeholder="College"
                   value={detail.school}
                   onChange={(e) => handleChange(i, e)}
+                  onBlur={(e) => handleBlur(i, e)} // Validate on blur
                 />
                 {errors[i]?.school && <small className="error-message">{errors[i].school}</small>}
               </div>
@@ -104,6 +125,7 @@ const Education = () => {
                   placeholder="Degree"
                   value={detail.degree}
                   onChange={(e) => handleChange(i, e)}
+                  onBlur={(e) => handleBlur(i, e)} // Validate on blur
                 />
                 {errors[i]?.degree && <small className="error-message">{errors[i].degree}</small>}
               </div>
@@ -117,6 +139,7 @@ const Education = () => {
                   placeholder="Start date"
                   value={detail.startDate}
                   onChange={(e) => handleChange(i, e)}
+                  onBlur={(e) => handleBlur(i, e)} // Validate on blur
                 />
                 
                 <input
@@ -126,6 +149,7 @@ const Education = () => {
                   placeholder="End date"
                   value={detail.endDate}
                   onChange={(e) => handleChange(i, e)}
+                  onBlur={(e) => handleBlur(i, e)} // Validate on blur
                 />
               </div>
 
@@ -137,6 +161,7 @@ const Education = () => {
                   placeholder="City"
                   value={detail.city}
                   onChange={(e) => handleChange(i, e)}
+                  onBlur={(e) => handleBlur(i, e)} // Validate on blur
                 />
                 {errors[i]?.city && <small className="error-message">{errors[i].city}</small>}
               </div>
@@ -152,6 +177,7 @@ const Education = () => {
                   placeholder="Description: e.g. Graduated with High Honors"
                   value={detail.description}
                   onChange={(e) => handleChange(i, e)}
+                  onBlur={(e) => handleBlur(i, e)} // Validate on blur
                 ></textarea>
                 {errors[i]?.description && <small className="error-message">{errors[i].description}</small>}
               </div>

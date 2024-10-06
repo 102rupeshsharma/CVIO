@@ -11,18 +11,29 @@ const Resume = () => {
 
   const downloadResume = () => {
     const resumeElement = resumeRef.current;
+
     html2canvas(resumeElement, { scale: 2 }).then((canvas) => {
       const imgData = canvas.toDataURL("image/jpeg", 0.8);
       const pdf = new jsPDF("portrait", "pt", "a4");
+
       const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+      const pdfHeight = pdf.internal.pageSize.getHeight();
+      const canvasWidth = canvas.width;
+      const canvasHeight = canvas.height;
+
+      const imgHeight = (canvasHeight * pdfWidth) / canvasWidth;
+      let heightLeft = imgHeight;
 
       let position = 0;
-      pdf.addImage(imgData, "JPEG", 0, position, pdfWidth, pdfHeight);
-      while (position < canvas.height) {
-        position += pdfHeight;
+
+      pdf.addImage(imgData, "JPEG", 0, position, pdfWidth, imgHeight);
+      heightLeft -= pdfHeight;
+
+      while (heightLeft > 0) {
+        position = heightLeft - imgHeight;
         pdf.addPage();
-        pdf.addImage(imgData, "JPEG", 0, -position, pdfWidth, pdfHeight);
+        pdf.addImage(imgData, "JPEG", 0, position, pdfWidth, imgHeight);
+        heightLeft -= pdfHeight;
       }
 
       pdf.save("Example.pdf");
@@ -42,7 +53,11 @@ const Resume = () => {
               <div className={styles.contact}>
                 <span id="phone">+91 {PersonalDetails.phone}</span>
                 <p className={styles.gmail}>
-                  <a href={`mailto:${PersonalDetails.email}`}>
+                  <a
+                    href={`mailto:${PersonalDetails.email}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {PersonalDetails.email}
                   </a>
                 </p>
@@ -59,6 +74,8 @@ const Resume = () => {
                   <a
                     href={PersonalDetails.linkdinprofileurl}
                     className={styles.LinkdInProfile}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     {PersonalDetails.linkdinprofileurl}
                   </a>
@@ -71,11 +88,10 @@ const Resume = () => {
                 {PersonalDetails.description}
               </div>
             )}
-            <hr />
 
             {skills && skills.length > 0 && (
               <>
-                <p className={styles.skillheader}>SKILLS</p>
+                <p className={styles.headers}>SKILLS</p>
                 <div className={styles.skills}>
                   {skills.map((skill, index) => (
                     <span style={{ fontSize: "20px" }} key={index}>
@@ -83,14 +99,15 @@ const Resume = () => {
                     </span>
                   ))}
                 </div>
-                <hr />
+               
               </>
             )}
+             <hr />
 
             {/* Work Experience */}
             {workExperience.length > 0 && (
               <>
-                <p className={styles.companyHeader}>WORK EXPERIENCE</p>
+                <p className={styles.headers}>WORK EXPERIENCE</p>
                 <div className={styles.companyInfo}>
                   {workExperience.map((detail, index) => (
                     <div key={index}>
@@ -122,14 +139,15 @@ const Resume = () => {
                     </div>
                   ))}
                 </div>
-                <hr />
+                
               </>
             )}
+            <hr />
 
             {/* Project */}
             {Project.length > 0 && (
               <>
-                <p className={styles.projectNameHeader}>PROJECT</p>
+                <p className={styles.headers}>PROJECT</p>
                 <div className={styles.projectInfo}>
                   {Project.map((project, index) => (
                     <div key={index}>
@@ -140,7 +158,13 @@ const Resume = () => {
                       </p>
                       <p style={{ marginTop: "8px" }}>
                         <strong>ProjectUrl:</strong>{" "}
-                        <a href={project.projectUrl}>{project.projectUrl}</a>
+                        <a
+                          href={project.projectUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {project.projectUrl}
+                        </a>
                       </p>
                       <p style={{ marginTop: "8px" }}>
                         <strong>Description:</strong>{" "}
@@ -150,14 +174,14 @@ const Resume = () => {
                     </div>
                   ))}
                 </div>
-                <hr />
               </>
             )}
+            <hr />
 
             {/* Education */}
             {Education.length > 0 && (
               <>
-                <p className={styles.educationHeader}>EDUCATION</p>
+                <p className={styles.headers}>EDUCATION</p>
                 <div className={styles.collegeInfo}>
                   {Education.map((education, index) => (
                     <div key={index}>
@@ -186,12 +210,16 @@ const Resume = () => {
                 </div>
                 <hr />
 
-                <p className={styles.personalInfoHeader}>Personal Details</p>
+                <p className={styles.headers}>Personal Details</p>
                 <div className={styles.personalInfo}>
                   <div className={styles.email}>
                     <strong>Email-Id: </strong>
                     <span>
-                      <a href={`mailto:${PersonalDetails.email}`}>
+                      <a
+                        href={`mailto:${PersonalDetails.email}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         {PersonalDetails.email}
                       </a>
                     </span>
