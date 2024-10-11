@@ -2,42 +2,58 @@ import React, { useContext, useRef } from "react";
 import { ResumeContext } from "../../context/ResumeContext";
 import styles from "./Resume.module.css";
 import jsPDF from "jspdf";
-import html2canvas from "html2canvas";
+import * as htmlToImage from 'html-to-image';
+import { toast } from "react-toastify";
 
 const Resume = () => {
   const { PersonalDetails, workExperience, Project, skills, Education } =
     useContext(ResumeContext);
   const resumeRef = useRef();
 
-  const downloadResume = () => {
-    const resumeElement = resumeRef.current;
+  //downloading the resume logic
+  const downloadResume = async () => {
+    const element = resumeRef.current;
+    
+    if(!element) {
+      toast.info("Unable to capture the content at a moment");
+      return;
+    }
 
-    html2canvas(resumeElement, { scale: 2 }).then((canvas) => {
-      const imgData = canvas.toDataURL("image/jpeg", 0.8);
-      const pdf = new jsPDF("portrait", "pt", "a4");
+    htmlToImage.toPng(element, { quality : 0.2})
+    .then((dataUrl) => {
+      const pdf = new jsPDF();
+      const img = new Image();
 
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = pdf.internal.pageSize.getHeight();
-      const canvasWidth = canvas.width;
-      const canvasHeight = canvas.height;
+      img.src = dataUrl;
 
-      const imgHeight = (canvasHeight * pdfWidth) / canvasWidth;
-      let heightLeft = imgHeight;
+      img.onload = () => {
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        const pageHeight = pdf.internal.pageSize.getHeight();
 
-      let position = 0;
+        const imgWidth = pageWidth;
+        const imgHeight = (img.height * imgWidth) / img.width;
 
-      pdf.addImage(imgData, "JPEG", 0, position, pdfWidth, imgHeight);
-      heightLeft -= pdfHeight;
+        let yOffset = 0;
 
-      while (heightLeft > 0) {
-        position = heightLeft - imgHeight;
-        pdf.addPage();
-        pdf.addImage(imgData, "JPEG", 0, position, pdfWidth, imgHeight);
-        heightLeft -= pdfHeight;
+        if (imgHeight <= pageHeight) {
+        pdf.addImage(dataUrl, "PNG", 0, 0, imgWidth, imgHeight);
+      } else {
+        while (yOffset < imgHeight) {
+          pdf.addImage(dataUrl, "PNG", 0, -yOffset, imgWidth, imgHeight);
+          yOffset += pageHeight;
+
+          if (yOffset < imgHeight) {
+            pdf.addPage();
+          }
+        }
       }
-
-      pdf.save("Example.pdf");
+      pdf.save("download.pdf");
+      };
+    })
+    .catch((error) => {
+      console.error("Error generating image", error);
     });
+
   };
 
   return (
@@ -126,10 +142,10 @@ const Resume = () => {
                           {detail.startDate} - {detail.endDate}
                         </span>
                       </div>
-                      <p>
+                      <p style={{ marginTop: "7px" }}>
                         <strong>Position:</strong> {detail.position}
                       </p>
-                      <p style={{ marginTop: "8px" }}>
+                      <p style={{ marginTop: "7px" }}>
                         <strong>Location:</strong> {detail.city}
                       </p>
                       <p style={{ marginTop: "7px" }}>
@@ -156,7 +172,7 @@ const Resume = () => {
                           <strong>Title:</strong> {project.projectTitle}
                         </span>
                       </p>
-                      <p style={{ marginTop: "8px" }}>
+                      <p style={{ marginTop: "7px" }}>
                         <strong>ProjectUrl:</strong>{" "}
                         <a
                           href={project.projectUrl}
@@ -166,7 +182,7 @@ const Resume = () => {
                           {project.projectUrl}
                         </a>
                       </p>
-                      <p style={{ marginTop: "8px" }}>
+                      <p style={{ marginTop: "7px" }}>
                         <strong>Description:</strong>{" "}
                         {project.projectDescription}
                       </p>
@@ -176,7 +192,9 @@ const Resume = () => {
                 </div>
               </>
             )}
+            
             <hr />
+            
 
             {/* Education */}
             {Education.length > 0 && (
@@ -201,7 +219,7 @@ const Resume = () => {
                       <p className={styles.details}>
                         <strong>School:</strong> {education.school}
                       </p>
-                      <p>
+                      <p style={{ marginTop: "8px" }}>
                         <strong>Location:</strong> {education.city}
                       </p>
                       <br />

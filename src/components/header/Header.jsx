@@ -31,7 +31,7 @@ const Header = () => {
 
     return (
         <header>
-            <p>CV.IO</p>
+            <p>CV.iO</p>
             
             <div className={styles.header_btn}>
               <div className={styles.icon}><FontAwesomeIcon icon={faUser} /></div>

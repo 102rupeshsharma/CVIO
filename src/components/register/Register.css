@@ -19,6 +19,10 @@
     transform: translate(-50%, -50%);
 }
 
+.no_background {
+    background-color: transparent;
+}
+
 .register_heading {
     font-size: 35px;
     display: flex;

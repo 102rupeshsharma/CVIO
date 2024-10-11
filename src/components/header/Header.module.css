@@ -9,8 +9,10 @@ header {
 header p {
   font-family: headingFont;
   margin-top: 29px;
-  font-size: 40px;
+  font-size: 50px;
   font-weight: 500;
+  background-color: transparent;
+  border-radius: 5px 5px 5px 5px;
 }
 
 .header_btn {
@@ -89,7 +91,6 @@ header p {
 @media screen and (max-width:1000px) {
 
   header {
-    background-color: orange;
     justify-content: space-evenly;
     padding: 0;
   }
