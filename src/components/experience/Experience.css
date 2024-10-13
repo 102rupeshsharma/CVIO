@@ -4,11 +4,12 @@
     box-sizing: border-box;
 }
 
-.work_container {
+.ed_container {
+    margin-top: 10px;
+    display: flex;
     align-items: center;
     width: auto;
     justify-content: center;
-    margin-top: 20px;
 }
 
 .work_heading {
@@ -18,7 +19,7 @@
     font-size: 50px;
     font-weight: 500;
     color: #3c3a3a;
-    margin-top: 25px;
+    padding-top: 15px;
 }
 
 .work_sub_container {

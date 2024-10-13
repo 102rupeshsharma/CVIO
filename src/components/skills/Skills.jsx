@@ -47,6 +47,7 @@ const Skills = () => {
   return (
     <>
       <Header />
+      <div className="main_container">
       <div className="skill_heading">Skills</div>
 
       <div className="skill_container">
@@ -106,6 +107,7 @@ const Skills = () => {
             </button>
           </div>
         </form>
+        </div>
       </div>
     </>
   );

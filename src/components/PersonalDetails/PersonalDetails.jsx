@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import axios from "axios";
 import { ResumeContext } from "../../context/ResumeContext";
 import Header from "../header/Header";
 import { useNavigate } from "react-router-dom";
@@ -7,11 +8,12 @@ import "./PersonalDetails.css";
 const PersonalDetails = () => {
   const navigate = useNavigate();
   const { PersonalDetails, setPersonalDetails } = useContext(ResumeContext);
-  const [localPersonalDetails, setlocalPersonalDetails] = useState(PersonalDetails);
+  const [localPersonalDetails, setlocalPersonalDetails] =
+    useState(PersonalDetails);
   const [touchedFields, setTouchedFields] = useState({});
   const [errors, setErrors] = useState({});
 
-  // Function to validate individual fields
+
   const validateField = (name, value) => {
     let fieldError = "";
 
@@ -35,7 +37,7 @@ const PersonalDetails = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();      
+    e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
@@ -49,12 +51,12 @@ const PersonalDetails = () => {
     const { name, value } = e.target;
     setlocalPersonalDetails({
       ...localPersonalDetails,
-      [name]: value
+      [name]: value,
     });
-    
+
     setErrors((prevErrors) => ({
       ...prevErrors,
-      [name]: validateField(name, value)
+      [name]: validateField(name, value),
     }));
   };
 
@@ -62,21 +64,24 @@ const PersonalDetails = () => {
     const { name, value } = e.target;
     setTouchedFields((prev) => ({
       ...prev,
-      [name]: true
+      [name]: true,
     }));
 
-    // Validate the specific field when the user leaves it (onBlur event)
     const fieldError = validateField(name, value);
     setErrors((prevErrors) => ({
       ...prevErrors,
-      [name]: fieldError
+      [name]: fieldError,
     }));
   };
+
 
   const validate = () => {
     let formErrors = {};
     Object.keys(localPersonalDetails).forEach((fieldName) => {
-      const fieldError = validateField(fieldName, localPersonalDetails[fieldName]);
+      const fieldError = validateField(
+        fieldName,
+        localPersonalDetails[fieldName]
+      );
       if (fieldError) formErrors[fieldName] = fieldError;
     });
     return formErrors;
@@ -86,8 +91,8 @@ const PersonalDetails = () => {
     <>
       <Header />
 
-      <div>
-        <div className="Per_heading">Personal Details</div>
+      <div className="main_container">
+        <p className="Per_heading">Personal Details</p>
 
         <div className="Per_container">
           <form onSubmit={handleSubmit}>
@@ -115,7 +120,9 @@ const PersonalDetails = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
-                {errors.linkdinprofileurl && <small>{errors.linkdinprofileurl}</small>}
+                {errors.linkdinprofileurl && (
+                  <small>{errors.linkdinprofileurl}</small>
+                )}
               </div>
 
               <div>
@@ -157,6 +164,7 @@ const PersonalDetails = () => {
                   onBlur={handleBlur}
                 />
                 {errors.description && <small>{errors.description}</small>}
+                
               </div>
 
               <div>
@@ -199,3 +207,4 @@ const PersonalDetails = () => {
 };
 
 export default PersonalDetails;
+

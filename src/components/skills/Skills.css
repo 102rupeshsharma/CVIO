@@ -106,7 +106,7 @@
 
 .skill_btn_container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     width: 100vw;
     margin: 50px auto;

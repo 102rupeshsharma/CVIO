@@ -100,8 +100,9 @@ const Experience = () => {
   return (
     <>
       <Header />
-      <div className="work_container">
-        <div className="work_heading">Experience</div>
+      <div className="main_container"> 
+        <p className="work_heading">Experience</p>
+        <div className="ed_container">
         <form onSubmit={handleSubmit}>
           {localWorkExperience.map((detail, i) => (
             <div className="work_sub_container" key={i}>
@@ -217,6 +218,7 @@ const Experience = () => {
             </button>
           </div>
         </form>
+        </div>
       </div>
     </>
   );

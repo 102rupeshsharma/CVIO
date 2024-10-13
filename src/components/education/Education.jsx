@@ -97,6 +97,7 @@ const Education = () => {
   return (
     <>
       <Header />
+      <div className="main_container">
       <div className="ed_heading">Education Info</div>
       <div className="ed_container">
         <form onSubmit={handleSubmit}>
@@ -219,6 +220,7 @@ const Education = () => {
             </button>
           </div>
         </form>
+        </div>
       </div>
     </>
   );

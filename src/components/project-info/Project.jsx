@@ -107,6 +107,7 @@ const Project = () => {
   return (
     <>
       <Header />
+      <div className="main_container"> 
       <div className="project_heading">Project Info</div>
       <div className="project_container">
         <form onSubmit={handleSubmit}>
@@ -193,6 +194,7 @@ const Project = () => {
             </button>
           </div>
         </form>
+      </div>
       </div>
     </>
   );
