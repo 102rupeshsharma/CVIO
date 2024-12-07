@@ -1,7 +1,7 @@
-import React, { useContext, useState, useEffect, useCallback, Dispatch, SetStateAction } from "react";
+import React, { useContext, useState, useEffect, useCallback} from "react";
 import CvioContext from "../../hoc/provider/cvioProvider";
 import Header from "../Header/Header";
-import "./Project.css";
+import "./ProjectDetails.css";
 import { SyntheticEvent } from "../../interfaces/Cvio.inteface";
 import { IProjectDetails } from "../../hoc/provider/cvioProvider.interface";
 import { JOURNEY_STAGES } from "../../constants/Common.constants";
@@ -48,8 +48,13 @@ const ProjectDetails = () => {
   };
 
   const addMore = () => {
-    setLocalProject([...localProject]);
-    setErrors([...errors]); // Add an empty error object for the new entry
+    const newProject = {
+      projectTitle: "",
+      projectUrl: "",
+      projectDescription: ""
+    };
+    setLocalProject([...localProject, newProject]);
+    setErrors([...errors]);
   };
 
   const remove = (index: number) => {
@@ -96,10 +101,10 @@ const ProjectDetails = () => {
     const validationErrors = validateForm();
     setErrors(validationErrors); // Show errors if any field is invalid
 
-    if (isFormValid) {
-      setProject(localProject); // Update context with localProject data
+    // if (isFormValid) {
+    //   setProject(localProject);
       setJourneyStage(JOURNEY_STAGES.SKILLS);
-    }
+    // }
   };
 
   return (
@@ -167,7 +172,7 @@ const ProjectDetails = () => {
                     </button>
                   )}
                   {i === localProject.length - 1 && (
-                    <button type="button" id="project_addMore" onClick={addMore}>
+                    <button type="button" className="add_remove" onClick={addMore}>
                       Add More
                     </button>
                   )}

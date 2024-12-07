@@ -4,11 +4,14 @@
   font-family: headingFont;
 }
 
-body {
+body, html {
+  height: 100%;
   margin: 0px;
   background-size: 400%;
   box-sizing: border-box;
-  background: linear-gradient(to bottom, #0099ff 0%, #ff99cc 100%);
+  background-image: url(../public/background.jpeg);
+  background-size: cover;
+  background-repeat: repeat-y;
 }
 
 @font-face {
@@ -41,8 +44,8 @@ body {
 }
 
 .main_container {
-  width: 800px;
-  margin: 0px auto;
+  width: 55%;
+  margin: 30px auto;
   margin-bottom: 40px;
   border-radius: 15px;
   background: rgba(255, 255, 255, 0.25);

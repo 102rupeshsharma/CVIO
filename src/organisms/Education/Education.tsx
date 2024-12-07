@@ -18,7 +18,7 @@ const Education = () => {
     updatedEducation[index][name] = value;
     setLocalEducation(updatedEducation);
 
-    // Clear specific error when a field is updated
+
     setErrors((prevErrors) => {
       const newErrors = [...prevErrors];
       newErrors[index] = { ...newErrors[index], [name]: "" };
@@ -40,7 +40,7 @@ const Education = () => {
       if (name === "city") newErrors[index] = { ...newErrors[index], city: "Enter city" };
       if (name === "description") newErrors[index] = { ...newErrors[index], description: "Enter description" };
     } else {
-      newErrors[index] = { ...newErrors[index], [name]: "" }; // Clear error for the field if value is present
+      newErrors[index] = { ...newErrors[index], [name]: "" }; 
     }
 
     setErrors(newErrors);
@@ -59,7 +59,7 @@ const Education = () => {
       },
     ]);
 
-    setErrors([...errors, {}]); // Add a new blank error object for the new education entry
+    setErrors([...errors, {}]);
   };
 
   const remove = (index: number) => {
@@ -72,7 +72,6 @@ const Education = () => {
     setErrors(updatedErrors);
   };
 
-  // Function to validate the entire form
   const validateForm = () => {
     const formErrors = localEducation.map((edu) => {
       const errorObj: IEducationDetails = {
@@ -96,10 +95,10 @@ const Education = () => {
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    if (validateForm()) {
-      setEducation(localEducation);
+    // if (validateForm()) {
+    //   setEducation(localEducation);
       setJourneyStage(JOURNEY_STAGES.PREVIEW);
-    }
+    // }
   };
 
   return (

@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext } from "react";
 import CvioContext from "../../hoc/provider/cvioProvider";
 import "./PreviewPage.css";
 import jsPDF from "jspdf";

@@ -51,5 +51,5 @@ export interface ICvioContextProps {
     education: Array<IEducationDetails>,
     setEducation: Dispatch<SetStateAction<Array<IEducationDetails>>>,
     journeyStage: number,
-    setJourneyStage: Dispatch<SetStateAction<number>>
+    setJourneyStage: (stage: number) => number | void 
 }
