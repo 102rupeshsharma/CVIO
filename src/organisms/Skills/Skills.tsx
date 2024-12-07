@@ -28,7 +28,6 @@ const Skills = () => {
 
   const handleInputChange = (event: SyntheticEvent) => {
     setSkillValue(event.target.value);
-    // Clear error message when user starts typing
     if (error) {
       setError('');
     }

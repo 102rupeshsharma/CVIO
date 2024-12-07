@@ -6,11 +6,14 @@ import ProjectDetails from "../../organisms/ProjectDetails/ProjectDetails";
 import Education from "../../organisms/Education/Education";
 import Skills from "../../organisms/Skills/Skills";
 import PreviewPage from "../PreviewPage/PreviewPage";
+import HomePage from "../Homepage/Homepage";
 
 const UserJourney = () => {
     const { journeyStage } = useContext(CvioContext);
 
     switch (journeyStage) {
+        case 0:
+            return <HomePage/>
         case 1:
             return <PersonalDetails />
         case 2:
@@ -23,6 +26,8 @@ const UserJourney = () => {
             return <Skills />
         case 6:
             return <PreviewPage />
+        default:
+            return <HomePage/>
     }
 }
 

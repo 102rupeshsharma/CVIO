@@ -32,7 +32,7 @@
 
 .home_start_btn {
     cursor: pointer;
-    background-color: rgb(41, 158, 181);
+    background-color: rgb(106 89 133);
     font-family: headingFont;
     padding: 0px 30px;
     margin: 20px 0px 0px 150px;
@@ -47,7 +47,7 @@
 }
 
 .home_start_btn:hover {
-    background-color: rgb(0, 174, 209);
+    background-color: rgb(77, 52, 117);
     transform: translateY(-2px);
 }
 

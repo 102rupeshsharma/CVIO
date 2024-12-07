@@ -1,57 +1,200 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .ed_container {
-    display: flex;
-    align-items: center;
-    width: auto;
-    justify-content: center;
-    margin-top: 20px;
+  display: flex;
+  align-items: center;
+  width: auto;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .ed_heading {
-    font-family: headingFont;
-    display: flex;
-    justify-content: center;
-    font-size: 50px;
-    margin-top: 25px;
-    height: auto;
-    width: auto;
-    color: #262424;
+  font-family: headingFont;
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
+  margin-top: 25px;
+  height: auto;
+  width: auto;
+  color: #0f0e0e;
 }
 
 .ed_sub_container {
-    display: grid;
-    grid-template-columns: 300px 300px;
-    grid-column-gap: 80px;
-    width: 750px;
-    height: auto;
-    margin: auto;
+  display: grid;
+  grid-template-columns: 300px 300px;
+  grid-column-gap: 80px;
+  width: 750px;
+  height: auto;
+  margin: auto;
 }
 
 .ed_input {
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    height: 50px;
-    width: 350px;
-    padding-left: 12px;
-    margin: 17px 12px;
-    align-items: center;
-    background-color: white;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  height: 50px;
+  width: 350px;
+  padding-left: 12px;
+  margin: 17px 12px;
+  align-items: center;
+  background-color: rgb(235, 235, 235);
+  color: #1d1d1d;
 }
 
 .ed_date_Container {
-    display: flex;
-    width: 374px;
+  display: flex;
+  width: 374px;
 }
 
 .ed_date_Container input {
-    width: 163px;
-    font-family: 'Arial', sans-serif;
+  width: 163px;
+  font-family: "Arial", sans-serif;
+  padding: 6px 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  height: 50px;
+  padding-left: 12px;
+  margin: 17px 12px;
+  align-items: center;
+  font-family: headingFont;
+}
+
+#ed_textarea {
+  margin: 0px 0px 0px 10px;
+  border: none;
+  width: 728px;
+  outline: none;
+  padding: 5px 5px;
+  overflow: auto;
+  resize: none;
+  height: auto;
+  background-color: rgb(235, 235, 235);
+}
+
+.ed_textarea {
+  grid-column: 1 / span 2;
+}
+
+.ed_textarea small {
+  color: red;
+  padding-left: 15px;
+  position: relative;
+  top: 0px;
+  font-weight: bold;
+}
+
+#ed_addMore {
+  margin: 0px 0px 0px 15px;
+}
+
+.ed_btn_container {
+  display: flex;
+  margin-top: 20px;
+  width: auto;
+  justify-content: space-between;
+  margin-bottom: 100px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.ed_button {
+  width: 160px;
+  height: 60px;
+  font-size: 100px;
+  border-radius: 10px;
+  border: none;
+  font-size: 20px;
+  background-color: rgb(106 89 133);
+}
+
+.ed_button:hover {
+  background-color: rgb(77, 52, 117);
+  transform: translateY(-2px);
+}
+.ed_button[disabled] {
+  background-color: rgb(81, 67, 102);
+  cursor: default;
+  transform: translate(0px);
+}
+
+button {
+  color: white;
+  width: 130px;
+  height: 36px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: rgb(106 89 133);
+  margin-left: 12px;
+  margin-top: 10px;
+}
+
+small {
+  color: red;
+  padding-left: 15px;
+  position: relative;
+  top: -15px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 770px) {
+  .ed_container {
+    justify-content: center;
+    height: auto;
+  }
+
+  .ed_heading {
+    display: flex;
+    justify-content: center;
+    font-size: 45px;
+    margin-top: 10px;
+    height: auto;
+    width: auto;
+  }
+
+  small {
+    color: red;
+    padding-left: 15px;
+    position: relative;
+    top: -15px;
+    font-weight: bold;
+  }
+
+  .ed_sub_container {
+    display: grid;
+    grid-template-columns: 300px 300px;
+    grid-column-gap: 15px;
+    width: 620px;
+    height: auto;
+    margin: 20px auto;
+  }
+
+  .ed_input {
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    height: 47px;
+    width: 276px;
+    padding-left: 12px;
+    margin: 17px 14px;
+    align-items: center;
+  }
+
+  .ed_date_Container {
+    display: flex;
+    width: auto;
+  }
+
+  .ed_date_Container input {
+    width: 128px;
+    font-family: "Arial", sans-serif;
     padding: 6px 10px;
     box-sizing: border-box;
     border-radius: 5px;
@@ -61,678 +204,516 @@
     padding-left: 12px;
     margin: 17px 12px;
     align-items: center;
-    font-family: headingFont;
-}
+  }
 
-#ed_textarea {
-    margin: 0px 0px 0px 10px;
+  #ed_textarea {
+    margin: 0px 0px 10px 12px;
     border: none;
-    width: 728px;
+    width: 596px;
     outline: none;
     padding: 5px 5px;
     overflow: auto;
     resize: none;
     height: auto;
     background-color: white;
-}
+  }
 
-.ed_textarea {
-    grid-column: 1/ span 2;
-}
-
-.ed_textarea small {
-    
-        color: red;
-        padding-left: 15px;
-        position: relative;
-        top: 0px;
-        font-weight: bold;
-}
-
-#ed_addMore {
-    margin: 0px 0px 0px 15px;
-}
-
-.ed_btn_container {
+  .ed_btn_container {
     display: flex;
     margin-top: 20px;
-    width: auto;
     justify-content: space-between;
-    margin-bottom: 100px;
-    transition: background 0.3s ease, transform 0.3s ease;
-}
+  }
 
-.ed_button {
+  .ed_button {
     width: 160px;
     height: 60px;
     font-size: 100px;
     border-radius: 10px;
     border: none;
     font-size: 20px;
-    background-color: rgb(41, 158, 181);
+    background-color: #1a91f0;
+  }
+
+  span {
+    position: relative;
+    left: 14px;
+    top: 5px;
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  input.ng-invalid.ng-touched {
+    border: 2px solid red;
+  }
+
+  textarea.ng-invalid.ng-touched {
+    border: 2px solid red;
+  }
 }
 
-.ed_button:hover{
-    background-color: rgb(0, 174, 209);
-    transform: translateY(-2px);
- }
- .ed_button[disabled] {
-    background-color: rgb(25, 103, 130);
-    cursor: default;
-    transform: translate(0px);
-}
+@media screen and (max-width: 630px) {
+  .ed_container {
+    justify-content: center;
+    height: auto;
+  }
 
-button {
-    color: white;
-    width: 130px;
-    height: 36px;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    background-color: rgb(41, 158, 181);
-    margin-left: 12px;
+  .ed_heading {
+    display: flex;
+    justify-content: center;
+    font-size: 34px;
     margin-top: 10px;
-}
+    height: auto;
+    width: auto;
+  }
 
-small {
+  small {
     color: red;
     padding-left: 15px;
     position: relative;
     top: -15px;
     font-weight: bold;
+  }
+
+  .ed_sub_container {
+    display: grid;
+    grid-template-columns: 260px 260px;
+    grid-column-gap: 15px;
+    width: 540px;
+    height: auto;
+    margin: 20px auto;
+  }
+
+  .ed_input {
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    height: 47px;
+    width: 250px;
+    padding-left: 12px;
+    margin: 17px 14px;
+    align-items: center;
+  }
+
+  .ed_date_Container {
+    display: flex;
+    width: auto;
+    margin-left: 9px;
+  }
+
+  .ed_date_Container input {
+    width: 114px;
+    font-family: "Arial", sans-serif;
+    padding: 6px 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    height: 50px;
+    padding-left: 12px;
+    margin: 17px 8px;
+    align-items: center;
+  }
+
+  #ed_textarea {
+    width: 527px;
+  }
+
+  .ed_btn_container {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+  }
+
+  .ed_button {
+    width: 160px;
+    height: 60px;
+    font-size: 100px;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    background-color: #1a91f0;
+  }
+
+  span {
+    position: relative;
+    left: 14px;
+    top: 5px;
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  input.ng-invalid.ng-touched {
+    border: 2px solid red;
+  }
+
+  textarea.ng-invalid.ng-touched {
+    border: 2px solid red;
+  }
 }
 
-@media screen and (max-width:770px) {
+@media screen and (max-width: 565px) {
+  .ed_container {
+    justify-content: center;
+    height: auto;
+  }
 
-    .ed_container {
-        justify-content: center;
-        height: auto;
-    }
+  .ed_heading {
+    display: flex;
+    justify-content: center;
+    font-size: 34px;
+    margin-top: 10px;
+    height: auto;
+    width: auto;
+  }
 
-    .ed_heading { 
-        display: flex;
-        justify-content: center;
-        font-size: 45px;
-        margin-top: 10px;
-        height: auto;
-        width: auto;
-    }
+  small {
+    color: red;
+    padding-left: 15px;
+    position: relative;
+    top: -15px;
+    font-weight: bold;
+  }
 
+  .ed_sub_container {
+    display: grid;
+    grid-template-columns: 225px 225px;
+    grid-column-gap: 15px;
+    width: 495px;
+    height: auto;
+    margin: 20px auto;
+  }
 
-    small {
-        color: red;
-        padding-left: 15px;
-        position: relative;
-        top: -15px;
-        font-weight: bold;
-    }
+  .ed_input {
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    height: 47px;
+    width: 221px;
+    padding-left: 12px;
+    margin: 17px 14px;
+    align-items: center;
+  }
 
-    .ed_sub_container {
-        display: grid;
-        grid-template-columns: 300px 300px;
-        grid-column-gap: 15px;
-        width: 620px;
-        height: auto;
-        margin: 20px auto;
-    }
+  .ed_date_Container input {
+    width: 105px;
+    font-family: "Arial", sans-serif;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    height: 46px;
+    padding-left: 7px;
+    margin: 17px 8px;
+    align-items: center;
+  }
 
-    .ed_input {
-        box-sizing: border-box;
-        border-radius: 5px;
-        border: none;
-        outline: none;
-        height: 47px;
-        width: 276px;
-        padding-left: 12px;
-        margin: 17px 14px;
-        align-items: center;
-    }
+  #ed_textarea {
+    width: 464px;
+  }
 
-    .ed_date_Container {
-        display: flex;
-        width: auto;
-    }
+  .ed_btn_container {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+  }
 
-    .ed_date_Container input {
-        width: 128px;
-        font-family: 'Arial', sans-serif;
-        padding: 6px 10px;
-        box-sizing: border-box;
-        border-radius: 5px;
-        border: none;
-        outline: none;
-        height: 50px;
-        padding-left: 12px;
-        margin: 17px 12px;
-        align-items: center;
-    }
+  .ed_button {
+    width: 160px;
+    height: 60px;
+    font-size: 100px;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    background-color: #1a91f0;
+  }
 
-    #ed_textarea {
-        margin: 0px 0px 10px 12px;
-        border: none;
-        width: 596px;
-        outline: none;
-        padding: 5px 5px;
-        overflow: auto;
-        resize: none;
-        height: auto;
-        background-color: white;
-    }
+  span {
+    position: relative;
+    left: 14px;
+    top: 5px;
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+  }
 
-    .ed_btn_container {
-        display: flex;
-        margin-top: 20px;
-        justify-content: space-between;
-    }
+  input.ng-invalid.ng-touched {
+    border: 2px solid red;
+  }
 
-    .ed_button {
-        width: 160px;
-        height: 60px;
-        font-size: 100px;
-        border-radius: 10px;
-        border: none;
-        font-size: 20px;
-        background-color: #1a91f0;
-    }
-
-    span {
-        position: relative;
-        left: 14px;
-        top: 5px;
-        color: red;
-        font-size: 14px;
-        font-weight: bold;
-    }
-
-    input.ng-invalid.ng-touched {
-        border: 2px solid red;
-    }
-
-    textarea.ng-invalid.ng-touched {
-        border: 2px solid red;
-    }
+  textarea.ng-invalid.ng-touched {
+    border: 2px solid red;
+  }
 }
 
+@media screen and (max-width: 520px) {
+  .ed_container {
+    justify-content: center;
+    height: auto;
+    margin: auto;
+  }
 
-@media screen and (max-width:630px) {
+  .ed_heading {
+    display: flex;
+    justify-content: center;
+    font-size: 34px;
+    margin-top: 10px;
+    height: auto;
+    width: auto;
+  }
 
-    .ed_container {
-        justify-content: center;
-        height: auto;
-    }
+  small {
+    color: red;
+    padding-left: 15px;
+    position: relative;
+    top: -15px;
+    font-weight: bold;
+  }
 
-    .ed_heading { 
-        display: flex;
-        justify-content: center;
-        font-size: 34px;
-        margin-top: 10px;
-        height: auto;
-        width: auto;
-    }
+  .ed_sub_container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 395px;
+    height: auto;
+    margin: 20px auto;
+  }
 
+  .ed_input {
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    height: 47px;
+    width: 336px;
+    padding-left: 12px;
+    margin: 17px 25px;
+    margin-left: 15px;
+    align-items: center;
+  }
 
-    small {
-        color: red;
-        padding-left: 15px;
-        position: relative;
-        top: -15px;
-        font-weight: bold;
-    }
+  .ed_date_Container input {
+    width: 160px;
+    font-family: "Arial", sans-serif;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    height: 46px;
+    padding-left: 7px;
+    margin: 17px 8px;
+    align-items: center;
+  }
 
-    .ed_sub_container {
-        display: grid;
-        grid-template-columns: 260px 260px;
-        grid-column-gap: 15px;
-        width: 540px;
-        height: auto;
-        margin: 20px auto;
-    }
+  #ed_textarea {
+    width: 338px;
+  }
 
-    .ed_input {
-        box-sizing: border-box;
-        border-radius: 5px;
-        border: none;
-        outline: none;
-        height: 47px;
-        width: 250px;
-        padding-left: 12px;
-        margin: 17px 14px;
-        align-items: center;
-    }
+  .ed_btn_container {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+  }
 
-    .ed_date_Container {
-        display: flex;
-        width: auto;
-        margin-left: 9px;
-    }
+  .ed_button {
+    width: 153px;
+    height: 49px;
+    font-size: 100px;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    background-color: #1a91f0;
+  }
 
-    .ed_date_Container input {
-        width: 114px;
-        font-family: 'Arial', sans-serif;
-        padding: 6px 10px;
-        box-sizing: border-box;
-        border-radius: 5px;
-        border: none;
-        outline: none;
-        height: 50px;
-        padding-left: 12px;
-        margin: 17px 8px;
-        align-items: center;
-    }
+  input.ng-invalid.ng-touched {
+    border: 2px solid red;
+  }
 
-    #ed_textarea {
-        width: 527px;
-    }
-
-    .ed_btn_container {
-        display: flex;
-        margin-top: 20px;
-        justify-content: space-between;
-    }
-
-    .ed_button {
-        width: 160px;
-        height: 60px;
-        font-size: 100px;
-        border-radius: 10px;
-        border: none;
-        font-size: 20px;
-        background-color: #1a91f0;
-    }
-
-
-    span {
-        position: relative;
-        left: 14px;
-        top: 5px;
-        color: red;
-        font-size: 14px;
-        font-weight: bold;
-    }
-
-    input.ng-invalid.ng-touched {
-        border: 2px solid red;
-    }
-
-    textarea.ng-invalid.ng-touched {
-        border: 2px solid red;
-    }
+  textarea.ng-invalid.ng-touched {
+    border: 2px solid red;
+  }
 }
 
+@media screen and (min-width: 309px) and (max-width: 412px) {
+  .ed_container {
+    justify-content: center;
+    height: auto;
+  }
 
-@media screen and (max-width:565px) {
+  .ed_heading {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    margin-top: 10px;
+    height: auto;
+    width: auto;
+  }
 
-    .ed_container {
-        justify-content: center;
-        height: auto;
-    }
+  small {
+    color: red;
+    padding-left: 15px;
+    position: relative;
+    top: -15px;
+    font-weight: bold;
+  }
 
-    .ed_heading { 
-        display: flex;
-        justify-content: center;
-        font-size: 34px;
-        margin-top: 10px;
-        height: auto;
-        width: auto;
-    }
+  .ed_sub_container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 309px;
+    height: auto;
+    margin: 10px auto;
+  }
 
+  .ed_input {
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    height: 32px;
+    width: 273px;
+    padding-left: 12px;
+    margin: 17px 14px;
+    align-items: center;
+  }
 
-    small {
-        color: red;
-        padding-left: 15px;
-        position: relative;
-        top: -15px;
-        font-weight: bold;
-    }
+  #ed_textarea {
+    width: 276px;
+  }
 
-    .ed_sub_container {
-        display: grid;
-        grid-template-columns: 225px 225px;
-        grid-column-gap: 15px;
-        width: 495px;
-        height: auto;
-        margin: 20px auto;
-    }
+  .ed_date_Container input {
+    width: 126px;
+    height: 37px;
+  }
 
-    .ed_input {
-        box-sizing: border-box;
-        border-radius: 5px;
-        border: none;
-        outline: none;
-        height: 47px;
-        width: 221px;
-        padding-left: 12px;
-        margin: 17px 14px;
-        align-items: center;
-    }
+  .ed_btn_container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+    justify-content: space-between;
+  }
 
-    .ed_date_Container input {
-        width: 105px;
-        font-family: "Arial", sans-serif;
-        box-sizing: border-box;
-        border-radius: 5px;
-        border: none;
-        outline: none;
-        height: 46px;
-        padding-left: 7px;
-        margin: 17px 8px;
-        align-items: center;
-    }
+  .ed_button {
+    width: 114px;
+    margin: 0px 0px 15px 0px;
+    height: 40px;
+    font-size: 50px;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    background-color: #1a91f0;
+  }
 
-    #ed_textarea {
-        width: 464px;
-    }
+  input.ng-invalid.ng-touched {
+    border: 2px solid red;
+  }
 
-    .ed_btn_container {
-        display: flex;
-        margin-top: 20px;
-        justify-content: space-between;
-    }
-
-    .ed_button {
-        width: 160px;
-        height: 60px;
-        font-size: 100px;
-        border-radius: 10px;
-        border: none;
-        font-size: 20px;
-        background-color: #1a91f0;
-    }
-
-    span {
-        position: relative;
-        left: 14px;
-        top: 5px;
-        color: red;
-        font-size: 14px;
-        font-weight: bold;
-    }
-
-    input.ng-invalid.ng-touched {
-        border: 2px solid red;
-    }
-
-    textarea.ng-invalid.ng-touched {
-        border: 2px solid red;
-    }
+  textarea.ng-invalid.ng-touched {
+    border: 2px solid red;
+  }
 }
 
+@media screen and (max-width: 308px) {
+  .ed_container {
+    justify-content: center;
+    height: auto;
+  }
 
+  .ed_heading {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    margin-top: 10px;
+    height: auto;
+    width: auto;
+  }
 
-@media screen and (max-width:520px) {
+  small {
+    color: red;
+    padding-left: 15px;
+    position: relative;
+    top: -15px;
+    font-weight: bold;
+  }
 
-    .ed_container {
-        justify-content: center;
-        height: auto;
-        margin: auto;
-    }
+  .ed_sub_container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 234px;
+    height: auto;
+    margin: 20px auto;
+  }
 
-    .ed_heading { 
-        display: flex;
-        justify-content: center;
-        font-size: 34px;
-        margin-top: 10px;
-        height: auto;
-        width: auto;
-    }
+  .ed_input {
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    height: 32px;
+    width: 200px;
+    padding-left: 12px;
+    margin: 17px 14px;
+    align-items: center;
+  }
 
+  #ed_textarea {
+    width: 205px;
+  }
 
-    small {
-        color: red;
-        padding-left: 15px;
-        position: relative;
-        top: -15px;
-        font-weight: bold;
-    }
+  .ed_date_Container {
+    margin-left: 0px;
+  }
 
-    .ed_sub_container {
-        display: flex;
-        flex-wrap: wrap;
-        width: 395px;
-        height: auto;
-        margin: 20px auto;
-    }
+  .ed_date_Container input {
+    width: 91px;
+    font-family: "Arial", sans-serif;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    height: 32px;
+    padding-left: 8px;
+    margin: 1px 11px;
+    align-items: center;
+  }
 
-    .ed_input {
-        box-sizing: border-box;
-        border-radius: 5px;
-        border: none;
-        outline: none;
-        height: 47px;
-        width: 336px;
-        padding-left: 12px;
-        margin: 17px 25px;
-        margin-left: 15px;
-        align-items: center;
-    }
+  .ed_btn_container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+    justify-content: space-between;
+  }
 
-    .ed_date_Container input {
-        width: 160px;
-        font-family: "Arial", sans-serif;
-        box-sizing: border-box;
-        border-radius: 5px;
-        border: none;
-        outline: none;
-        height: 46px;
-        padding-left: 7px;
-        margin: 17px 8px;
-        align-items: center;
-    }
+  button {
+    color: white;
+    width: 97px;
+    height: 36px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: #1a91f0;
+    margin-left: 12px;
+  }
 
-    #ed_textarea {
-        width: 338px;
-    }
+  .ed_button {
+    width: 103px;
+    margin: 0px 0px 15px 0px;
+    height: 40px;
+    font-size: 100px;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    background-color: #1a91f0;
+  }
 
-    .ed_btn_container {
-        display: flex;
-        margin-top: 20px;
-        justify-content: space-between;
-    }
+  input.ng-invalid.ng-touched {
+    border: 2px solid red;
+  }
 
-    .ed_button {
-        width: 153px;
-        height: 49px;
-        font-size: 100px;
-        border-radius: 10px;
-        border: none;
-        font-size: 20px;
-        background-color: #1a91f0;
-    }
-
-    input.ng-invalid.ng-touched {
-        border: 2px solid red;
-    }
-
-    textarea.ng-invalid.ng-touched {
-        border: 2px solid red;
-    }
+  textarea.ng-invalid.ng-touched {
+    border: 2px solid red;
+  }
 }
-
-
-
-@media screen and (min-width:309px) and (max-width:412px) {
-
-    .ed_container {
-        justify-content: center;
-        height: auto;
-    }
-
-    .ed_heading { 
-        display: flex;
-        justify-content: center;
-        font-size: 20px;
-        margin-top: 10px;
-        height: auto;
-        width: auto;
-    }
-
-
-    small {
-        color: red;
-        padding-left: 15px;
-        position: relative;
-        top: -15px;
-        font-weight: bold;
-    }
-
-    .ed_sub_container {
-        display: flex;
-        flex-wrap: wrap;
-        width: 309px;
-        height: auto;
-        margin: 10px auto;
-    }
-
-    .ed_input {
-        box-sizing: border-box;
-        border-radius: 5px;
-        border: none;
-        outline: none;
-        height: 32px;
-        width: 273px;
-        padding-left: 12px;
-        margin: 17px 14px;
-        align-items: center;
-    }
-
-    #ed_textarea {
-        width: 276px;
-    }
-
-    .ed_date_Container input {
-        width: 126px;
-        height: 37px;
-    }
-
-    .ed_btn_container {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 10px;
-        justify-content: space-between;
-    }
-
-    .ed_button {
-        width: 114px;
-        margin: 0px 0px 15px 0px;
-        height: 40px;
-        font-size: 50px;
-        border-radius: 10px;
-        border: none;
-        font-size: 20px;
-        background-color: #1a91f0;
-    }
-
-    input.ng-invalid.ng-touched {
-        border: 2px solid red;
-    }
-
-    textarea.ng-invalid.ng-touched {
-        border: 2px solid red;
-    }
-}
-
-@media screen and (max-width:308px) {
-
-    .ed_container {
-        justify-content: center;
-        height: auto;
-    }
-
-    .ed_heading { 
-        display: flex;
-        justify-content: center;
-        font-size: 20px;
-        margin-top: 10px;
-        height: auto;
-        width: auto;
-    }
-
-
-    small {
-        color: red;
-        padding-left: 15px;
-        position: relative;
-        top: -15px;
-        font-weight: bold;
-    }
-
-    .ed_sub_container {
-        display: flex;
-        flex-wrap: wrap;
-        width: 234px;
-        height: auto;
-        margin: 20px auto;
-    }
-
-    .ed_input {
-        box-sizing: border-box;
-        border-radius: 5px;
-        border: none;
-        outline: none;
-        height: 32px;
-        width: 200px;
-        padding-left: 12px;
-        margin: 17px 14px;
-        align-items: center;
-    }
-
-    #ed_textarea {
-        width: 205px;
-    }
-
-    .ed_date_Container{
-        margin-left: 0px;
-    }
-
-    .ed_date_Container input {
-        width: 91px;
-        font-family: "Arial", sans-serif;
-        box-sizing: border-box;
-        border-radius: 5px;
-        border: none;
-        outline: none;
-        height: 32px;
-        padding-left: 8px;
-        margin: 1px 11px;
-        align-items: center;
-    }
-
-    .ed_btn_container {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 10px;
-        justify-content: space-between;
-    }
-
-    button {
-        color: white;
-        width: 97px;
-        height: 36px;
-        border-radius: 10px;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        background-color: #1a91f0;
-        margin-left: 12px;
-    }
-
-    .ed_button {
-        width: 103px;
-        margin: 0px 0px 15px 0px;
-        height: 40px;
-        font-size: 100px;
-        border-radius: 10px;
-        border: none;
-        font-size: 20px;
-        background-color: #1a91f0;
-    }
-
-    input.ng-invalid.ng-touched {
-        border: 2px solid red;
-    }
-
-    textarea.ng-invalid.ng-touched {
-        border: 2px solid red;
-    }
-} 

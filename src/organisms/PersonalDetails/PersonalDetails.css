@@ -11,7 +11,7 @@
     justify-content: center;
     font-size: 50px;
     font-weight: 500;
-    color: #231f1f;
+    color: #0f0e0e;
     padding-top: 20px;
 }
 
@@ -26,40 +26,39 @@
 
 .Per_sub_container {
     display: grid;
-    grid-template-columns: 300px 300px;
-    grid-column-gap: 80px;
-    width: 750px;
+    grid-template-columns: 380px 380px;
+    grid-column-gap: 10px;
     height: auto;
-    margin: auto;
 }
 
 
 .Per_input {
     border-radius: 5px;
-    border: none;
     outline: none;
-    height: 50px;
-    width: 350px;
+    border: none;
+    height: 54px;
+    width: 360px;
     padding-left: 12px;
     margin: 17px 12px;
     align-items: center;
-    background-color: white;
+    background-color: rgb(235, 235, 235);
     font-family: headingFont;
-    color: #313030;
+    font-size: 16px;
+    color: #1d1d1d;
 }
 
 #Per_textarea {
-    margin-left: 10px;
+    margin-left: 5px;
     margin-bottom: 10px;
-    border: none;
     outline: none;
     padding: 5px 5px;
     overflow: auto;
     resize: vertical;
     height: auto;
-    background-color: white;
+    background-color: rgb(235, 235, 235);
     font-family: headingFont;
-    color: #313030;
+    font-size: 16px;
+    color: #1d1d1d;
 }
 
 .Per_textarea {
@@ -83,31 +82,38 @@
     border-radius: 10px;
     border: none;
     font-size: 20px;
-    background-color: rgb(41, 158, 181);
-    color: #222121;
+    background-color: rgb(106 89 133);
+    color: #080808;
 }
 
 .Per_nextBtn:hover {
-    background-color: rgb(0, 174, 209);
+    background-color: rgb(77, 52, 117);
     transform: translateY(-2px);
     cursor: pointer;
 }
 
 .Per_nextBtn.disabled {
     background-color: gray;  
-  cursor: not-allowed;
-  opacity: 0.5;
+    cursor: not-allowed;
+    opacity: 0.5;
 }
-
-
-small {
-    position: relative;
-    top: -10px;
-    left: 15px;
-    color: red;
-    font-size: 15px;
-    display: block;
+.Per_input.error {
+    border: 2px solid red;
   }
+  
+  .Per_input.error::placeholder {
+    color: red;
+  }
+  
+  .Per_textarea.error {
+    border: 2px solid red;
+  }
+  
+  .Per_textarea.error::placeholder {
+    color: red;
+  }
+
+  
 
 @media screen and (min-width:650px) and (max-width:790px) {
 

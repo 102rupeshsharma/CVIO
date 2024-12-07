@@ -2,7 +2,7 @@ import React, { createContext, useState, useMemo, ReactNode } from 'react';
 import { JOURNEY_STAGES } from '../../constants/Common.constants';
 import { IEducationDetails, IPersonalDetails, IProjectDetails, ICvioContextProps, IWorkExperience, } from './cvioProvider.interface';
 
-const defaultJourneyStage = JOURNEY_STAGES.PERSONAL_DETAILS
+const defaultJourneyStage = JOURNEY_STAGES.Home_PAGE;
 
 const initialState = {
   personalDetails: { fullName: '', email: '', phone: '', linkdinProfileUrl: '', city: '', state: '', description: '' },
@@ -16,8 +16,9 @@ const initialState = {
   education: [],
   setEducation: () => {},
   journeyStage: defaultJourneyStage,
-  setJourneyStage: () => {}
+  setJourneyStage: (stage: number) => stage
 }
+
 const CvioContext = createContext<ICvioContextProps>(initialState);
 
 
@@ -47,7 +48,8 @@ export const CvioProvider = ({ children }: { children: ReactNode }) => {
   ]);
 
   const [skills, setSkills] = useState<string[] | never[]>([]);
-
+  debugger;
+  
   const contextProvider = useMemo(() => ({
     personalDetails,
     setPersonalDetails,
@@ -61,7 +63,7 @@ export const CvioProvider = ({ children }: { children: ReactNode }) => {
     setEducation,
     journeyStage,
     setJourneyStage
-  }), [personalDetails, workExperience, project, skills, education, journeyStage]);
+  }), [personalDetails, setJourneyStage, workExperience, project, skills, education, journeyStage]);
 
   return (
     <CvioContext.Provider value={contextProvider}>

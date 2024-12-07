@@ -1,7 +1,8 @@
-import React, { SetStateAction, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import CvioContext from "../../hoc/provider/cvioProvider";
 import Header from "../Header/Header";
 import "./WorkExperience.css";
+import "./WorkExperience.interface";
 import "react-datepicker/dist/react-datepicker.css";
 import { SyntheticEvent } from "../../interfaces/Cvio.inteface";
 import { IWorkExperienceDetails } from "./WorkExperience.interface";
@@ -11,7 +12,17 @@ import { JOURNEY_STAGES } from "../../constants/Common.constants";
 const Experience = () => {
   const { workExperience, setWorkExperience, setJourneyStage } = useContext(CvioContext);
   const [localWorkExperience, setLocalWorkExperience] = useState<Array<IWorkExperience>>(workExperience);
+  const [touchedFields, setTouchedFields] = useState<Array<IWorkExperienceDetails>>([]);
   const [errors, setErrors] = useState<Array<IWorkExperienceDetails>>([]);
+
+  const validateField = (name: string, value: string) => {
+    let errorMessage = "";
+    if (name === "company" && !value) errorMessage = "*Enter company name";
+    if (name === "position" && !value) errorMessage = "*Enter position";
+    if (name === "city" && !value) errorMessage = "*Enter city";
+    if (name === "description" && !value) errorMessage = "*Enter job description";
+    return errorMessage;
+  };
 
   const handleChange = (e: SyntheticEvent, index: number) => {
     const { name, value } = e.target;
@@ -19,42 +30,37 @@ const Experience = () => {
     updatedExperience[index][name] = value;
     setLocalWorkExperience(updatedExperience);
 
-    // Clear the error for the specific field when it changes
     setErrors((prevErrors) => {
-      const newErrors: Array<IWorkExperienceDetails> = [...prevErrors];
-      if (newErrors[index]) {
-        newErrors[index][name] = "";
-      }
+      const newErrors = [...prevErrors];
+      newErrors[index] = { ...newErrors[index], [name]: validateField(name, value) };
       return newErrors;
     });
   };
 
   const handleBlur = (e: SyntheticEvent, index: number) => {
     const { name, value } = e.target;
-    let errorMessage = "";
+    const errorMessage = validateField(name, value);
 
-    if (!value) {
-      // Check for the specific field and set the corresponding error message
-      if (name === "company") errorMessage = "*Enter company name";
-      if (name === "position") errorMessage = "*Enter position";
-      if (name === "city") errorMessage = "*Enter city";
-      if (name === "description") errorMessage = "*Enter job description";
-    }
-
-    // Update only the error for the specific field that was blurred
     setErrors((prevErrors) => {
       const newErrors = [...prevErrors];
-      if (!newErrors[index]) {
-        newErrors[index] = [];
-      }
-      newErrors[index][name] = errorMessage;
+      newErrors[index] = { ...newErrors[index], [name]: errorMessage };
       return newErrors;
+    });
+
+    setTouchedFields((prevTouched) => {
+      const newTouched = [...prevTouched];
+      newTouched[index] = { ...newTouched[index], [name]: true };
+      return newTouched;
     });
   };
 
   const addMore = () => {
-    setLocalWorkExperience([...localWorkExperience]);
-    setErrors([...errors]); // Add a blank error object for the new experience entry
+    setLocalWorkExperience([
+      ...localWorkExperience,
+      { company: "", position: "", startDate: "", endDate: "", city: "", description: "" }
+    ]);
+    setErrors([...errors, {}]);
+    setTouchedFields([...touchedFields, {}]);
   };
 
   const remove = (index: number) => {
@@ -65,34 +71,35 @@ const Experience = () => {
     const updatedErrors = [...errors];
     updatedErrors.splice(index, 1);
     setErrors(updatedErrors);
+
+    const updatedTouched = [...touchedFields];
+    updatedTouched.splice(index, 1);
+    setTouchedFields(updatedTouched);
   };
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    // Validate the entire form before submission
-    const validationErrors = localWorkExperience.map((exp: IWorkExperienceDetails) => {
-      const errorObj: IWorkExperienceDetails = {
-        company: undefined,
-        position: undefined,
-        startDate: undefined,
-        endDate: undefined,
-        city: undefined,
-        description: undefined
+
+    const validationErrors = localWorkExperience.map((exp) => {
+      return {
+        // company: validateField("company", exp.company),
+        // position: validateField("position", exp.position),
+        // startDate: validateField("startDate", exp.startDate),
+        // endDate: validateField("endDate", exp.endDate),
+        // city: validateField("city", exp.city),
+        // description: validateField("description", exp.description)
       };
-      if (!exp.company) errorObj.company = "*Enter company name";
-      if (!exp.position) errorObj.position = "*Enter position";
-      if (!exp.city) errorObj.city = "*Enter city";
-      if (!exp.description) errorObj.description = "*Enter job description";
-      return errorObj;
     });
 
     setErrors(validationErrors);
 
-    // Check if there are any errors
-    const isValid = validationErrors.every((error: IWorkExperienceDetails) => Object.keys(error).length === 0);
+    const isValid = validationErrors.every((error) =>
+      Object.values(error).every((err) => !err)
+    );
+
     if (isValid) {
       setWorkExperience(localWorkExperience);
-      setJourneyStage(JOURNEY_STAGES.PROJECT)
+      setJourneyStage(JOURNEY_STAGES.PROJECT);
     }
   };
 
@@ -103,37 +110,32 @@ const Experience = () => {
         <p className="work_heading">Experience</p>
         <div className="ed_container">
           <form onSubmit={handleSubmit}>
-            {localWorkExperience.map((detail: IWorkExperienceDetails, i: number) => (
+            {localWorkExperience.map((detail, i) => (
               <div className="work_sub_container" key={i}>
-                {/* Company Name */}
                 <div>
                   <input
                     type="text"
                     name="company"
                     value={detail.company}
                     onChange={(e) => handleChange(e, i)}
-                    onBlur={(e) => handleBlur(e, i)}  // Call handleBlur on blur
+                    onBlur={(e) => handleBlur(e, i)}
                     placeholder="Company Name"
                     className="work_inputtext"
                   />
-                  {errors[i]?.company && <small className="error-message">{errors[i].company}</small>}
                 </div>
 
-                {/* Position */}
                 <div>
                   <input
                     type="text"
                     name="position"
                     value={detail.position}
                     onChange={(e) => handleChange(e, i)}
-                    onBlur={(e) => handleBlur(e, i)}  // Call handleBlur on blur
+                    onBlur={(e) => handleBlur(e, i)}
                     placeholder="Position"
                     className="work_inputtext"
                   />
-                  {errors[i]?.position && <small className="error-message">{errors[i].position}</small>}
                 </div>
 
-                {/* Start Date and End Date */}
                 <div className="work_date_Container">
                   <input
                     type="month"
@@ -153,49 +155,40 @@ const Experience = () => {
                   />
                 </div>
 
-                {/* City */}
                 <div className="work_city">
                   <input
                     type="text"
                     name="city"
                     value={detail.city}
                     onChange={(e) => handleChange(e, i)}
-                    onBlur={(e) => handleBlur(e, i)}  // Call handleBlur on blur
+                    onBlur={(e) => handleBlur(e, i)}
                     placeholder="City"
                     className="work_inputtext"
                   />
-                  {errors[i]?.city && <small className="error-message">{errors[i].city}</small>}
                 </div>
 
-                {/* Job Description */}
                 <div className="work_textarea">
                   <textarea
                     name="description"
                     value={detail.description}
                     onChange={(e) => handleChange(e, i)}
-                    onBlur={(e) => handleBlur(e, i)}  // Call handleBlur on blur
+                    onBlur={(e) => handleBlur(e, i)}
                     cols={98}
-                    rows={5}
+                    rows={9}
                     style={{ resize: "vertical" }}
                     placeholder="Summary"
                     id="work_textarea"
                   ></textarea>
-                  {errors[i]?.description && <small className="error-message">{errors[i].description}</small>}
                 </div>
 
-                {/* Add/Remove Buttons */}
                 <div>
                   {localWorkExperience.length > 1 && (
-                    <button
-                      type="button"
-                      onClick={() => remove(i)}
-                      disabled={localWorkExperience.length <= 1}
-                    >
+                    <button type="button" className="add_remove" onClick={() => remove(i)} disabled={localWorkExperience.length <= 1}>
                       Remove
                     </button>
                   )}
                   {i === localWorkExperience.length - 1 && (
-                    <button type="button" id="work_addMore" onClick={addMore}>
+                    <button type="button" className="add_remove" onClick={addMore}>
                       Add More
                     </button>
                   )}
@@ -203,7 +196,6 @@ const Experience = () => {
               </div>
             ))}
 
-            {/* Back and Next Buttons */}
             <div className="work_btn_container">
               <button
                 type="button"
